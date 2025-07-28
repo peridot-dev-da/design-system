@@ -1018,6 +1018,7 @@ body {
     aspect-ratio: 1;
     justify-content: center;
     align-items: center;
+    background-color: var(--pds-neutral-black);
 }
 
 .btn-icon-sm {
@@ -1130,6 +1131,7 @@ body {
     padding: 0.5rem;
     border-radius: 50%;
     box-shadow: var(--shadow);
+    background-color: var(--pds-neutral-dark);
 }
 
 /* Demo styles */

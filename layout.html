@@ -1,11 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Layout System - Design System</title>
     <link rel="stylesheet" href="./css/root.css">
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            if (savedTheme === 'dark' || (savedTheme === null && systemPrefersDark)) {
+                document.documentElement.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark');
+            } else if (savedTheme === 'light') {
+                document.documentElement.classList.add('light-mode');
+                localStorage.setItem('theme', 'dark');
+            }
+        })()
+    </script>
 </head>
+
 <body>
     <button class="theme-toggle btn btn-primary" onclick="toggleTheme()">🌙 Toggle Theme</button>
 
@@ -37,7 +53,7 @@
                             <p class="mt-4 fs-14 text-muted">Full-width container</p>
                         </div>
                     </div>
-                    
+
                     <h4 class="mt-8 mb-4">Size Variants</h4>
                     <div class="row gap-2">
                         <div class="col">
@@ -155,19 +171,22 @@
                                 <ul class="nav-menu">
                                     <li class="nav-item">
                                         <a href="#" class="nav-link active">
-                                            <div class="nav-icon" style="background: currentColor; border-radius: 3px;"></div>
+                                            <div class="nav-icon" style="background: currentColor; border-radius: 3px;">
+                                            </div>
                                             Dashboard
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="#" class="nav-link">
-                                            <div class="nav-icon" style="background: currentColor; border-radius: 3px;"></div>
+                                            <div class="nav-icon" style="background: currentColor; border-radius: 3px;">
+                                            </div>
                                             Analytics
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="#" class="nav-link">
-                                            <div class="nav-icon" style="background: currentColor; border-radius: 3px;"></div>
+                                            <div class="nav-icon" style="background: currentColor; border-radius: 3px;">
+                                            </div>
                                             Settings
                                         </a>
                                     </li>
@@ -186,7 +205,9 @@
                                 </div>
                                 <div class="d-flex align-items-center gap-3">
                                     <span class="fs-14 text-muted">User Name</span>
-                                    <div style="width: 32px; height: 32px; background: var(--pds-primary-300); border-radius: 50%;"></div>
+                                    <div
+                                        style="width: 32px; height: 32px; background: var(--pds-primary-300); border-radius: 50%;">
+                                    </div>
                                 </div>
                             </div>
                             <div class="content-area">
@@ -216,16 +237,20 @@
                             <h4>Justify Content</h4>
                         </div>
                         <div class="card-body">
-                            <div class="d-flex justify-content-start mb-4" style="background: var(--pds-neutral-grey-100); padding: 8px; border-radius: 4px;">
+                            <div class="d-flex justify-content-start mb-4"
+                                style="background: var(--pds-neutral-grey-100); padding: 8px; border-radius: 4px;">
                                 <div class="demo-box" style="padding: 8px 12px; margin: 0;">Start</div>
                             </div>
-                            <div class="d-flex justify-content-center mb-4" style="background: var(--pds-neutral-grey-100); padding: 8px; border-radius: 4px;">
+                            <div class="d-flex justify-content-center mb-4"
+                                style="background: var(--pds-neutral-grey-100); padding: 8px; border-radius: 4px;">
                                 <div class="demo-box" style="padding: 8px 12px; margin: 0;">Center</div>
                             </div>
-                            <div class="d-flex justify-content-end mb-4" style="background: var(--pds-neutral-grey-100); padding: 8px; border-radius: 4px;">
+                            <div class="d-flex justify-content-end mb-4"
+                                style="background: var(--pds-neutral-grey-100); padding: 8px; border-radius: 4px;">
                                 <div class="demo-box" style="padding: 8px 12px; margin: 0;">End</div>
                             </div>
-                            <div class="d-flex justify-content-between" style="background: var(--pds-neutral-grey-100); padding: 8px; border-radius: 4px;">
+                            <div class="d-flex justify-content-between"
+                                style="background: var(--pds-neutral-grey-100); padding: 8px; border-radius: 4px;">
                                 <div class="demo-box" style="padding: 8px 12px; margin: 0;">Between</div>
                                 <div class="demo-box" style="padding: 8px 12px; margin: 0;">Items</div>
                             </div>
@@ -238,13 +263,16 @@
                             <h4>Align Items</h4>
                         </div>
                         <div class="card-body">
-                            <div class="d-flex align-items-start mb-4" style="background: var(--pds-neutral-grey-100); padding: 8px; border-radius: 4px; height: 60px;">
+                            <div class="d-flex align-items-start mb-4"
+                                style="background: var(--pds-neutral-grey-100); padding: 8px; border-radius: 4px; height: 60px;">
                                 <div class="demo-box" style="padding: 8px 12px; margin: 0;">Start</div>
                             </div>
-                            <div class="d-flex align-items-center mb-4" style="background: var(--pds-neutral-grey-100); padding: 8px; border-radius: 4px; height: 60px;">
+                            <div class="d-flex align-items-center mb-4"
+                                style="background: var(--pds-neutral-grey-100); padding: 8px; border-radius: 4px; height: 60px;">
                                 <div class="demo-box" style="padding: 8px 12px; margin: 0;">Center</div>
                             </div>
-                            <div class="d-flex align-items-end" style="background: var(--pds-neutral-grey-100); padding: 8px; border-radius: 4px; height: 60px;">
+                            <div class="d-flex align-items-end"
+                                style="background: var(--pds-neutral-grey-100); padding: 8px; border-radius: 4px; height: 60px;">
                                 <div class="demo-box" style="padding: 8px 12px; margin: 0;">End</div>
                             </div>
                         </div>
@@ -302,7 +330,4 @@
     <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
     <link rel="stylesheet" href="./css/root.css">
     <script src="js/root.js"></script>
-    <script>
-        initTheme()
-    </script>
 </body>

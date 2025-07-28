@@ -7,9 +7,19 @@
     <title>Design System - Layout System</title>
     <link rel="stylesheet" href="./css/root.css">
     <link rel="stylesheet" href="./css/root.css">
-    <script src="js/root.js"></script>
     <script>
-        initTheme()
+        (function () {
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            if (savedTheme === 'dark' || (savedTheme === null && systemPrefersDark)) {
+                document.documentElement.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark');
+            } else if (savedTheme === 'light') {
+                document.documentElement.classList.add('light-mode');
+                localStorage.setItem('theme', 'dark');
+            }
+        })()
     </script>
 </head>
 
@@ -748,6 +758,7 @@
 
     <!-- Overlay for mobile -->
     <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+    <script src="js/root.js"></script>
 </body>
 
 </html>

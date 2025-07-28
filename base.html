@@ -1,16 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Design System - Layout System</title>
     <link rel="stylesheet" href="./css/root.css">
     <link rel="stylesheet" href="./css/root.css">
-    <script src="js/root.js"></script>
     <script>
-        initTheme()
+        (function () {
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            if (savedTheme === 'dark' || (savedTheme === null && systemPrefersDark)) {
+                document.documentElement.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark');
+            } else if (savedTheme === 'light') {
+                document.documentElement.classList.add('light-mode');
+                localStorage.setItem('theme', 'dark');
+            }
+        })()
     </script>
 </head>
+
 <body>
     <div class="dashboard-layout">
         <!-- Sidebar -->
@@ -29,7 +41,8 @@
                     <ul class="nav-menu">
                         <li class="nav-item">
                             <a href="#foundation" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
                                     <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
                                     <rect x="7" y="7" width="10" height="3"></rect>
                                     <rect x="7" y="14" width="10" height="3"></rect>
@@ -39,8 +52,11 @@
                         </li>
                         <li class="nav-item">
                             <a href="#utilities" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z">
+                                    </path>
                                 </svg>
                                 Utility Classes
                             </a>
@@ -54,7 +70,8 @@
                     <ul class="nav-menu">
                         <li class="nav-item">
                             <a href="#layout-system" class="nav-link active">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
                                     <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
                                     <line x1="9" y1="3" x2="9" y2="21"></line>
                                 </svg>
@@ -63,7 +80,8 @@
                         </li>
                         <li class="nav-item">
                             <a href="#grid-system" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
                                     <rect x="3" y="3" width="6" height="6"></rect>
                                     <rect x="15" y="3" width="6" height="6"></rect>
                                     <rect x="3" y="15" width="6" height="6"></rect>
@@ -74,7 +92,8 @@
                         </li>
                         <li class="nav-item">
                             <a href="#containers" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
                                     <rect x="2" y="6" width="20" height="12" rx="2"></rect>
                                 </svg>
                                 Containers
@@ -89,7 +108,8 @@
                     <ul class="nav-menu">
                         <li class="nav-item has-children">
                             <a href="#navigation" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
                                     <line x1="3" y1="12" x2="21" y2="12"></line>
                                     <line x1="3" y1="6" x2="21" y2="6"></line>
                                     <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -120,8 +140,11 @@
                     <ul class="nav-menu">
                         <li class="nav-item has-children">
                             <a href="#forms" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M9 11H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2h-4"></path>
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M9 11H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2h-4">
+                                    </path>
                                     <rect x="9" y="3" width="6" height="8" rx="1"></rect>
                                 </svg>
                                 Form Controls
@@ -159,7 +182,8 @@
                     <ul class="nav-menu">
                         <li class="nav-item">
                             <a href="#button-system" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
                                     <rect x="3" y="8" width="18" height="8" rx="1"></rect>
                                     <path d="M7 8V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"></path>
                                 </svg>
@@ -168,16 +192,20 @@
                         </li>
                         <li class="nav-item">
                             <a href="#icon-buttons" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
                                     <circle cx="12" cy="12" r="3"></circle>
-                                    <path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"></path>
+                                    <path
+                                        d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24">
+                                    </path>
                                 </svg>
                                 Icon Buttons
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="#button-groups" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
                                     <rect x="3" y="8" width="5" height="8" rx="1"></rect>
                                     <rect x="9.5" y="8" width="5" height="8" rx="1"></rect>
                                     <rect x="16" y="8" width="5" height="8" rx="1"></rect>
@@ -194,7 +222,8 @@
                     <ul class="nav-menu">
                         <li class="nav-item">
                             <a href="#base-card" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
                                     <rect x="4" y="4" width="16" height="16" rx="2"></rect>
                                 </svg>
                                 Base Card
@@ -202,7 +231,8 @@
                         </li>
                         <li class="nav-item">
                             <a href="#content-panel" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
                                     <rect x="3" y="3" width="18" height="18" rx="2"></rect>
                                     <path d="M9 3v18"></path>
                                 </svg>
@@ -211,7 +241,8 @@
                         </li>
                         <li class="nav-item">
                             <a href="#list-items" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
                                     <line x1="8" y1="6" x2="21" y2="6"></line>
                                     <line x1="8" y1="12" x2="21" y2="12"></line>
                                     <line x1="8" y1="18" x2="21" y2="18"></line>
@@ -231,7 +262,8 @@
                     <ul class="nav-menu">
                         <li class="nav-item">
                             <a href="#modal-system" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
                                     <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
                                     <rect x="7" y="7" width="10" height="6" rx="1"></rect>
                                 </svg>
@@ -240,7 +272,8 @@
                         </li>
                         <li class="nav-item">
                             <a href="#toast-notifications" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
                                     <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
                                     <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
                                 </svg>
@@ -249,7 +282,8 @@
                         </li>
                         <li class="nav-item">
                             <a href="#alert-banners" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
                                     <path d="M12 9v4"></path>
                                     <path d="M12 17h.01"></path>
                                     <path d="M3 3l18 18"></path>
@@ -259,7 +293,8 @@
                         </li>
                         <li class="nav-item">
                             <a href="#dropdown-menus" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
                                     <polyline points="6,9 12,15 18,9"></polyline>
                                 </svg>
                                 Dropdown Menus
@@ -274,7 +309,8 @@
                     <ul class="nav-menu">
                         <li class="nav-item">
                             <a href="#status-badges" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
                                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                                     <polyline points="22,4 12,14.01 9,11.01"></polyline>
                                 </svg>
@@ -283,7 +319,8 @@
                         </li>
                         <li class="nav-item">
                             <a href="#progress-bars" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
                                     <line x1="10" y1="9" x2="9" y2="9"></line>
                                     <line x1="15" y1="9" x2="15" y2="9"></line>
                                     <path d="M4 2h16v20H4z"></path>
@@ -293,7 +330,8 @@
                         </li>
                         <li class="nav-item">
                             <a href="#empty-states" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
                                     <circle cx="12" cy="12" r="10"></circle>
                                     <path d="M8 12l2 2 4-4"></path>
                                 </svg>
@@ -309,7 +347,8 @@
                     <ul class="nav-menu">
                         <li class="nav-item">
                             <a href="#calendar-grid" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
                                     <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                                     <line x1="16" y1="2" x2="16" y2="6"></line>
                                     <line x1="8" y1="2" x2="8" y2="6"></line>
@@ -320,7 +359,8 @@
                         </li>
                         <li class="nav-item">
                             <a href="#range-slider" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
                                     <line x1="4" y1="12" x2="20" y2="12"></line>
                                     <circle cx="8" cy="12" r="2"></circle>
                                 </svg>
@@ -336,9 +376,12 @@
                     <ul class="nav-menu">
                         <li class="nav-item">
                             <a href="#theme-system" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
                                     <circle cx="12" cy="12" r="5"></circle>
-                                    <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+                                    <path
+                                        d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42">
+                                    </path>
                                 </svg>
                                 Dark Mode
                             </a>
@@ -367,7 +410,8 @@
                     <h1 class="page-title">Layout System</h1>
                 </div>
                 <div class="main-header-right">
-                    <button class="theme-toggle btn btn-outline-secondary btn-icon" onclick="toggleTheme()" title="Toggle theme">
+                    <button class="theme-toggle btn btn-outline-secondary btn-icon" onclick="toggleTheme()"
+                        title="Toggle theme">
                         <svg id="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                         </svg>
@@ -387,7 +431,8 @@
                 <div class="page-section">
                     <div class="section-header">
                         <h1 class="section-title">Layout System</h1>
-                        <p class="section-subtitle">Master template and responsive layout components for building consistent dashboard interfaces</p>
+                        <p class="section-subtitle">Master template and responsive layout components for building
+                            consistent dashboard interfaces</p>
                     </div>
 
                     <!-- Layout Overview -->
@@ -417,15 +462,18 @@
                             <div class="demo-grid">
                                 <div class="demo-item">
                                     <h4 style="margin-bottom: 8px;">Responsive Sidebar</h4>
-                                    <p style="margin: 0; font-size: 14px;">Collapses to overlay on mobile, fixed on desktop</p>
+                                    <p style="margin: 0; font-size: 14px;">Collapses to overlay on mobile, fixed on
+                                        desktop</p>
                                 </div>
                                 <div class="demo-item">
                                     <h4 style="margin-bottom: 8px;">Hierarchical Navigation</h4>
-                                    <p style="margin: 0; font-size: 14px;">Organized sections with expandable submenus</p>
+                                    <p style="margin: 0; font-size: 14px;">Organized sections with expandable submenus
+                                    </p>
                                 </div>
                                 <div class="demo-item">
                                     <h4 style="margin-bottom: 8px;">Consistent Header</h4>
-                                    <p style="margin: 0; font-size: 14px;">Sticky header with theme toggle and actions</p>
+                                    <p style="margin: 0; font-size: 14px;">Sticky header with theme toggle and actions
+                                    </p>
                                 </div>
                                 <div class="demo-item">
                                     <h4 style="margin-bottom: 8px;">Accessible Navigation</h4>
@@ -443,38 +491,40 @@
                         <div class="card-body">
                             <h4 style="margin-bottom: 12px;">Template Structure</h4>
                             <div class="code-example">
-&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;Page Title - Design System&lt;/title&gt;
-    &lt;link rel="stylesheet" href="./css/root.css"&gt;
-    &lt;script src="js/root.js"&gt;&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div class="dashboard-layout"&gt;
-        &lt;!-- Sidebar --&gt;
-        &lt;div class="sidebar"&gt;...&lt;/div&gt;
-        
-        &lt;!-- Main Content --&gt;
-        &lt;div class="main-content"&gt;
-            &lt;div class="main-header"&gt;...&lt;/div&gt;
-            &lt;div class="content-area"&gt;
-                &lt;!-- Page content here --&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;</div>
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html lang="en"&gt;
+                                &lt;head&gt;
+                                &lt;meta charset="UTF-8"&gt;
+                                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                                &lt;title&gt;Page Title - Design System&lt;/title&gt;
+                                &lt;link rel="stylesheet" href="./css/root.css"&gt;
+                                &lt;script src="js/root.js"&gt;&lt;/script&gt;
+                                &lt;/head&gt;
+                                &lt;body&gt;
+                                &lt;div class="dashboard-layout"&gt;
+                                &lt;!-- Sidebar --&gt;
+                                &lt;div class="sidebar"&gt;...&lt;/div&gt;
+
+                                &lt;!-- Main Content --&gt;
+                                &lt;div class="main-content"&gt;
+                                &lt;div class="main-header"&gt;...&lt;/div&gt;
+                                &lt;div class="content-area"&gt;
+                                &lt;!-- Page content here --&gt;
+                                &lt;/div&gt;
+                                &lt;/div&gt;
+                                &lt;/div&gt;
+                                &lt;/body&gt;
+                                &lt;/html&gt;</div>
 
                             <h4 style="margin: 24px 0 12px;">Navigation States</h4>
-                            <p style="margin-bottom: 12px;">Add the <code style="background: var(--pds-primary-100); padding: 2px 4px; border-radius: 3px;">.active</code> class to highlight the current page:</p>
+                            <p style="margin-bottom: 12px;">Add the <code
+                                    style="background: var(--pds-primary-100); padding: 2px 4px; border-radius: 3px;">.active</code>
+                                class to highlight the current page:</p>
                             <div class="code-example">
-&lt;a href="#current-page" class="nav-link active"&gt;
-    &lt;svg class="nav-icon"&gt;...&lt;/svg&gt;
-    Current Page
-&lt;/a&gt;</div>
+                                &lt;a href="#current-page" class="nav-link active"&gt;
+                                &lt;svg class="nav-icon"&gt;...&lt;/svg&gt;
+                                Current Page
+                                &lt;/a&gt;</div>
                         </div>
                     </div>
 
@@ -486,8 +536,10 @@
                         <div class="card-body">
                             <div style="display: flex; gap: 12px; flex-wrap: wrap;">
                                 <button class="btn btn-primary" onclick="toggleSidebar()">Toggle Sidebar</button>
-                                <button class="btn btn-outline-secondary" onclick="expandNavSection()">Expand Navigation</button>
-                                <button class="btn btn-outline-secondary" onclick="simulateNavigation()">Simulate Navigation</button>
+                                <button class="btn btn-outline-secondary" onclick="expandNavSection()">Expand
+                                    Navigation</button>
+                                <button class="btn btn-outline-secondary" onclick="simulateNavigation()">Simulate
+                                    Navigation</button>
                                 <button class="btn btn-success" onclick="toggleTheme()">Toggle Theme</button>
                             </div>
                             <p style="margin-top: 16px; color: var(--text-muted); font-size: 14px;">
@@ -502,5 +554,7 @@
 
     <!-- Overlay for mobile -->
     <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+    <script src="js/root.js"></script>
 </body>
+
 </html>

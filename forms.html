@@ -6,6 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Design System - Layout System</title>
     <link rel="stylesheet" href="./css/root.css">
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            if (savedTheme === 'dark' || (savedTheme === null && systemPrefersDark)) {
+                document.documentElement.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark');
+            } else if (savedTheme === 'light') {
+                document.documentElement.classList.add('light-mode');
+                localStorage.setItem('theme', 'dark');
+            }
+        })()
+    </script>
 </head>
 
 <body>
@@ -972,9 +986,6 @@
     <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
     <link rel="stylesheet" href="./css/root.css">
     <script src="js/root.js"></script>
-    <script>
-        initTheme()
-    </script>
 
     <script>
         // Character count for textarea
