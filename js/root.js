@@ -5,10 +5,25 @@ function toggleTheme() {
 
     if (isDark) {
         // Sun icon for dark mode
+        localStorage.setItem('theme', 'dark');
         themeIcon.innerHTML = '<circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>';
     } else {
         // Moon icon for light mode
+        localStorage.setItem('theme', 'light');
         themeIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+    }
+}
+
+function initTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme === 'dark' || (savedTheme === null && systemPrefersDark)) {
+        document.documentElement.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark');
+    } else if (savedTheme === 'light') {
+        document.documentElement.classList.add('light-mode');
+        localStorage.setItem('theme', 'dark');
     }
 }
 
@@ -54,20 +69,6 @@ function toggleSidebar() {
     sidebar.classList.toggle('active');
     overlay.classList.toggle('active');
     hamburger.classList.toggle('active');
-}
-
-function toggleTheme() {
-    document.documentElement.classList.toggle('dark-mode');
-    const isDark = document.documentElement.classList.contains('dark-mode');
-    const themeIcon = document.getElementById('theme-icon');
-
-    if (isDark) {
-        // Sun icon for dark mode
-        themeIcon.innerHTML = '<circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>';
-    } else {
-        // Moon icon for light mode
-        themeIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
-    }
 }
 
 function expandNavSection() {
