@@ -91,7 +91,7 @@ document.addEventListener('click', function (e) {
     const sidebar = document.getElementById('sidebar');
     const hamburger = document.getElementById('hamburgerToggle');
 
-    if (!sidebar.contains(e.target) && !hamburger.contains(e.target) && sidebar.classList.contains('active')) {
+    if (!sidebar.classList.contains(e.target) && !hamburger.contains(e.target) && sidebar.classList.contains('active')) {
         toggleSidebar();
     }
 });
