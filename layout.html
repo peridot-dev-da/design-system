@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout System - Design System</title>
+    <link rel="stylesheet" href="./css/root.css">
+</head>
+<body>
+    <button class="theme-toggle btn btn-primary" onclick="toggleTheme()">🌙 Toggle Theme</button>
+
+    <div class="container">
+        <div class="section">
+            <h1 class="section-title">Layout System</h1>
+            <p class="section-subtitle">Comprehensive layout components for building dashboard interfaces</p>
+        </div>
+
+        <!-- Container System -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">Container System</h2>
+                <p class="section-subtitle">Responsive containers for content width management</p>
+            </div>
+
+            <div class="card mb-8">
+                <div class="card-header">
+                    <h3>Container Types</h3>
+                </div>
+                <div class="card-body">
+                    <div class="grid grid-2 gap-4">
+                        <div>
+                            <div class="demo-box">.container</div>
+                            <p class="mt-4 fs-14 text-muted">Responsive fixed-width container</p>
+                        </div>
+                        <div>
+                            <div class="demo-box">.container-fluid</div>
+                            <p class="mt-4 fs-14 text-muted">Full-width container</p>
+                        </div>
+                    </div>
+                    
+                    <h4 class="mt-8 mb-4">Size Variants</h4>
+                    <div class="row gap-2">
+                        <div class="col">
+                            <div class="demo-box fs-14">.container-sm<br>540px</div>
+                        </div>
+                        <div class="col">
+                            <div class="demo-box fs-14">.container-md<br>720px</div>
+                        </div>
+                        <div class="col">
+                            <div class="demo-box fs-14">.container-lg<br>960px</div>
+                        </div>
+                        <div class="col">
+                            <div class="demo-box fs-14">.container-xl<br>1140px</div>
+                        </div>
+                        <div class="col">
+                            <div class="demo-box fs-14">.container-xxl<br>1320px</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grid System -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">Grid System</h2>
+                <p class="section-subtitle">12-column flexbox grid with responsive breakpoints</p>
+            </div>
+
+            <div class="card mb-8">
+                <div class="card-header">
+                    <h3>Flexbox Grid</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-4">
+                        <div class="col-12">
+                            <div class="demo-box">.col-12</div>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-6">
+                            <div class="demo-box">.col-6</div>
+                        </div>
+                        <div class="col-6">
+                            <div class="demo-box">.col-6</div>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-4">
+                            <div class="demo-box">.col-4</div>
+                        </div>
+                        <div class="col-4">
+                            <div class="demo-box">.col-4</div>
+                        </div>
+                        <div class="col-4">
+                            <div class="demo-box">.col-4</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="demo-box">.col</div>
+                        </div>
+                        <div class="col">
+                            <div class="demo-box">.col</div>
+                        </div>
+                        <div class="col">
+                            <div class="demo-box">.col</div>
+                        </div>
+                        <div class="col">
+                            <div class="demo-box">.col</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-8">
+                <div class="card-header">
+                    <h3>CSS Grid</h3>
+                </div>
+                <div class="card-body">
+                    <div class="grid grid-3 mb-4">
+                        <div class="demo-box">.grid-3</div>
+                        <div class="demo-box">.grid-3</div>
+                        <div class="demo-box">.grid-3</div>
+                    </div>
+                    <div class="grid grid-auto-fit">
+                        <div class="demo-box">.grid-auto-fit</div>
+                        <div class="demo-box">.grid-auto-fit</div>
+                        <div class="demo-box">.grid-auto-fit</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Layout -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">Dashboard Layout</h2>
+                <p class="section-subtitle">Complete dashboard layout with responsive sidebar</p>
+            </div>
+
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h3>Live Demo</h3>
+                    <button class="btn btn-outline-primary" onclick="toggleSidebar()">Toggle Sidebar</button>
+                </div>
+                <div class="card-body p-0" style="height: 400px; overflow: hidden;">
+                    <div class="dashboard-layout">
+                        <div class="sidebar" id="demoSidebar">
+                            <div class="nav-brand">
+                                <div class="nav-brand-logo" style="background: var(--pds-primary-500);"></div>
+                                <div class="nav-brand-text">Brand Name</div>
+                            </div>
+                            <div class="sidebar-content">
+                                <ul class="nav-menu">
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link active">
+                                            <div class="nav-icon" style="background: currentColor; border-radius: 3px;"></div>
+                                            Dashboard
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">
+                                            <div class="nav-icon" style="background: currentColor; border-radius: 3px;"></div>
+                                            Analytics
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">
+                                            <div class="nav-icon" style="background: currentColor; border-radius: 3px;"></div>
+                                            Settings
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="main-content">
+                            <div class="main-header">
+                                <div class="d-flex align-items-center">
+                                    <button class="hamburger-toggle" id="hamburgerToggle" onclick="toggleSidebar()">
+                                        <span class="hamburger-line"></span>
+                                        <span class="hamburger-line"></span>
+                                        <span class="hamburger-line"></span>
+                                    </button>
+                                    <h1 class="ml-8 fw-600">Page Title</h1>
+                                </div>
+                                <div class="d-flex align-items-center gap-3">
+                                    <span class="fs-14 text-muted">User Name</span>
+                                    <div style="width: 32px; height: 32px; background: var(--pds-primary-300); border-radius: 50%;"></div>
+                                </div>
+                            </div>
+                            <div class="content-area">
+                                <div class="card-body">
+                                    <div class="demo-content" style="height: 200px;">
+                                        Main Content Area
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Flexbox Utilities -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">Flexbox Utilities</h2>
+                <p class="section-subtitle">Comprehensive flexbox utilities for quick layouts</p>
+            </div>
+
+            <div class="row gap-4">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Justify Content</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-start mb-4" style="background: var(--pds-neutral-grey-100); padding: 8px; border-radius: 4px;">
+                                <div class="demo-box" style="padding: 8px 12px; margin: 0;">Start</div>
+                            </div>
+                            <div class="d-flex justify-content-center mb-4" style="background: var(--pds-neutral-grey-100); padding: 8px; border-radius: 4px;">
+                                <div class="demo-box" style="padding: 8px 12px; margin: 0;">Center</div>
+                            </div>
+                            <div class="d-flex justify-content-end mb-4" style="background: var(--pds-neutral-grey-100); padding: 8px; border-radius: 4px;">
+                                <div class="demo-box" style="padding: 8px 12px; margin: 0;">End</div>
+                            </div>
+                            <div class="d-flex justify-content-between" style="background: var(--pds-neutral-grey-100); padding: 8px; border-radius: 4px;">
+                                <div class="demo-box" style="padding: 8px 12px; margin: 0;">Between</div>
+                                <div class="demo-box" style="padding: 8px 12px; margin: 0;">Items</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Align Items</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex align-items-start mb-4" style="background: var(--pds-neutral-grey-100); padding: 8px; border-radius: 4px; height: 60px;">
+                                <div class="demo-box" style="padding: 8px 12px; margin: 0;">Start</div>
+                            </div>
+                            <div class="d-flex align-items-center mb-4" style="background: var(--pds-neutral-grey-100); padding: 8px; border-radius: 4px; height: 60px;">
+                                <div class="demo-box" style="padding: 8px 12px; margin: 0;">Center</div>
+                            </div>
+                            <div class="d-flex align-items-end" style="background: var(--pds-neutral-grey-100); padding: 8px; border-radius: 4px; height: 60px;">
+                                <div class="demo-box" style="padding: 8px 12px; margin: 0;">End</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cards and Panels -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">Cards & Panels</h2>
+                <p class="section-subtitle">Content containers with headers and footers</p>
+            </div>
+
+            <div class="row gap-4">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Basic Card</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>This is a basic card with header and body content.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Card with Footer</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>This card includes a footer section.</p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="d-flex justify-content-end gap-2">
+                                <button class="btn btn-outline-secondary">Cancel</button>
+                                <button class="btn btn-primary">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>No Header Card</h4>
+                            <p>Simple card with just body content.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+    <script src="js/root.js"></script>
+</body>
