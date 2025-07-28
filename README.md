@@ -4,7 +4,7 @@ A modern, lightweight design system built with vanilla HTML, CSS, and JavaScript
 
 ## 🚀 Live Demo
 
-Visit the live design system documentation: **[https://your-username.github.io/peridot-design-system](https://your-username.github.io/peridot-design-system)**
+Visit the live design system documentation: **[https://peridot-dev-da.github.io/peridot-design-system](https://peridot-dev-da.github.io/peridot-design-system)**
 
 ## ✨ Features
 
@@ -40,8 +40,8 @@ Include the CSS and JavaScript files in your HTML:
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="https://your-username.github.io/peridot-design-system/css/root.css">
-    <script src="https://your-username.github.io/peridot-design-system/js/root.js"></script>
+    <link rel="stylesheet" href="https://peridot-dev-da.github.io/peridot-design-system/css/root.css">
+    <script src="https://peridot-dev-da.github.io/peridot-design-system/js/root.js"></script>
 </head>
 <body>
     <!-- Your content using PDS classes -->
