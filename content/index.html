@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peridot Design System</title>
+    <link rel="stylesheet" href="./css/root.css">
+    <link rel="stylesheet" href="./css/root.css">
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            if (savedTheme === 'dark' || (savedTheme === null && systemPrefersDark)) {
+                document.documentElement.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark');
+            } else if (savedTheme === 'light') {
+                document.documentElement.classList.add('light-mode');
+                localStorage.setItem('theme', 'dark');
+            }
+        })()
+    </script>
+</head>
+
+<body>
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-brand">
+                    <div class="sidebar-brand-logo">PDS</div>
+                    <div class="sidebar-brand-text">Peridot Design System</div>
+                </a>
+            </div>
+
+            <div class="sidebar-content">
+                <!-- Foundation Section -->
+                <div class="nav-section">
+                    <div class="nav-section-title">Foundation</div>
+                    <ul class="nav-menu">
+                        <li class="nav-item">
+                            <a href="foundation.html" class="nav-link">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                    <rect x="7" y="7" width="10" height="3"></rect>
+                                    <rect x="7" y="14" width="10" height="3"></rect>
+                                </svg>
+                                Design Tokens
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Layout Section -->
+                <div class="nav-section">
+                    <div class="nav-section-title">Layout</div>
+                    <ul class="nav-menu">
+                        <li class="nav-item">
+                            <a href="layout.html" class="nav-link">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="9" y1="3" x2="9" y2="21"></line>
+                                </svg>
+                                Layout System
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="base.html" class="nav-link">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <rect x="2" y="6" width="20" height="12" rx="2"></rect>
+                                </svg>
+                                Base Template
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Components Section -->
+                <div class="nav-section">
+                    <div class="nav-section-title">Components</div>
+                    <ul class="nav-menu">
+                        <li class="nav-item">
+                            <a href="buttons.html" class="nav-link">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <rect x="3" y="8" width="18" height="8" rx="1"></rect>
+                                    <path d="M7 8V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"></path>
+                                </svg>
+                                Buttons
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="forms.html" class="nav-link">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M9 11H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2h-4">
+                                    </path>
+                                    <rect x="9" y="3" width="6" height="8" rx="1"></rect>
+                                </svg>
+                                Form Controls
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="template.html" class="nav-link">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+                                </svg>
+                                Template Examples
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Documentation Section -->
+                <div class="nav-section">
+                    <div class="nav-section-title">Documentation</div>
+                    <ul class="nav-menu">
+                        <li class="nav-item">
+                            <a href="https://github.com/your-username/peridot-design-system" class="nav-link"
+                                target="_blank">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                    </path>
+                                </svg>
+                                GitHub Repository
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="footer-info">
+                    Peridot Design System v1.0<br>
+                    Built with CSS Custom Properties
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="main-header">
+                <div class="main-header-left">
+                    <button class="hamburger-toggle" id="hamburgerToggle" onclick="toggleSidebar()">
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                    </button>
+                    <h1 class="page-title">Peridot Design System</h1>
+                </div>
+                <div class="main-header-right">
+                    <button class="theme-toggle btn btn-outline-secondary btn-icon" onclick="toggleTheme()"
+                        title="Toggle theme">
+                        <svg id="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="content-area">
+                <!-- Page Content -->
+                <div class="page-section">
+                    <div class="section-header">
+                        <h1 class="section-title">Welcome to Peridot Design System</h1>
+                        <p class="section-subtitle">A comprehensive design system built with modern CSS and vanilla
+                            JavaScript for building consistent, accessible user interfaces.</p>
+                    </div>
+
+                    <!-- Introduction -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Getting Started</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Peridot Design System (PDS) is a lightweight, modern design system that provides:</p>
+                            <ul style="margin: 16px 0 0 20px; color: var(--pds-neutral-grey-700);">
+                                <li><strong>Design Tokens</strong> - Consistent colors, typography, and spacing</li>
+                                <li><strong>Component Library</strong> - Reusable UI components with variants</li>
+                                <li><strong>Layout System</strong> - Responsive dashboard and page layouts</li>
+                                <li><strong>Theme Support</strong> - Built-in dark mode with CSS custom properties</li>
+                                <li><strong>Accessibility</strong> - WCAG compliant components with proper ARIA
+                                    attributes</li>
+                                <li><strong>No Dependencies</strong> - Pure HTML, CSS, and JavaScript</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Layout Features -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Key Features</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="demo-grid">
+                                <div class="demo-item">
+                                    <h4 style="margin-bottom: 8px;">Responsive Sidebar</h4>
+                                    <p style="margin: 0; font-size: 14px;">Collapses to overlay on mobile, fixed on
+                                        desktop</p>
+                                </div>
+                                <div class="demo-item">
+                                    <h4 style="margin-bottom: 8px;">Hierarchical Navigation</h4>
+                                    <p style="margin: 0; font-size: 14px;">Organized sections with expandable submenus
+                                    </p>
+                                </div>
+                                <div class="demo-item">
+                                    <h4 style="margin-bottom: 8px;">Consistent Header</h4>
+                                    <p style="margin: 0; font-size: 14px;">Sticky header with theme toggle and actions
+                                    </p>
+                                </div>
+                                <div class="demo-item">
+                                    <h4 style="margin-bottom: 8px;">Accessible Navigation</h4>
+                                    <p style="margin: 0; font-size: 14px;">Keyboard navigation and ARIA attributes</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Navigation -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Quick Navigation</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="demo-grid">
+                                <div class="demo-item">
+                                    <h4 style="margin-bottom: 8px;"><a href="foundation.html"
+                                            style="color: var(--pds-primary-600); text-decoration: none;">Foundation</a>
+                                    </h4>
+                                    <p style="margin: 0; font-size: 14px;">Design tokens, colors, typography, and
+                                        utility classes</p>
+                                </div>
+                                <div class="demo-item">
+                                    <h4 style="margin-bottom: 8px;"><a href="layout.html"
+                                            style="color: var(--pds-primary-600); text-decoration: none;">Layout
+                                            System</a></h4>
+                                    <p style="margin: 0; font-size: 14px;">Dashboard layouts, grid systems, and
+                                        responsive containers</p>
+                                </div>
+                                <div class="demo-item">
+                                    <h4 style="margin-bottom: 8px;"><a href="buttons.html"
+                                            style="color: var(--pds-primary-600); text-decoration: none;">Buttons</a>
+                                    </h4>
+                                    <p style="margin: 0; font-size: 14px;">Button variants, sizes, states, and
+                                        interactive examples</p>
+                                </div>
+                                <div class="demo-item">
+                                    <h4 style="margin-bottom: 8px;"><a href="forms.html"
+                                            style="color: var(--pds-primary-600); text-decoration: none;">Form
+                                            Controls</a></h4>
+                                    <p style="margin: 0; font-size: 14px;">Input fields, validation, uploads, and form
+                                        components</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Usage Instructions -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Basic Usage</h3>
+                        </div>
+                        <div class="card-body">
+                            <h4 style="margin-bottom: 12px;">Include the CSS and JavaScript</h4>
+                            <pre class="code-example">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="https://your-username.github.io/peridot-design-system/css/root.css"&gt;
+  &lt;script src="https://your-username.github.io/peridot-design-system/js/root.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;!-- Your content using PDS classes --&gt;
+  &lt;button class="btn btn-primary"&gt;Primary Button&lt;/button&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+
+                            <h4 style="margin: 24px 0 12px;">Navigation States</h4>
+                            <p style="margin-bottom: 12px;">Add the <code
+                                    style="background: var(--pds-primary-100); padding: 2px 4px; border-radius: 3px;">.active</code>
+                                class to highlight the current page:</p>
+                            <pre class="code-example">
+&lt;a href="#current-page" class="nav-link active"&gt;
+  &lt;svg class="nav-icon"&gt;...&lt;/svg&gt;
+  Current Page
+&lt;/a&gt;</pre>
+
+                            <h4 style="margin: 24px 0 12px;">Try Dark Mode</h4>
+                            <p style="margin-bottom: 12px;">Click the theme toggle in the header to switch between light
+                                and dark modes.</p>
+                            <button class="btn btn-success" onclick="toggleTheme()">Toggle Theme Now</button>
+                        </div>
+                    </div>
+
+                    <!-- Component Status -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Component Status</h3>
+                        </div>
+                        <div class="card-body">
+                            <div
+                                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
+                                <div
+                                    style="padding: 12px; border: 1px solid var(--pds-neutral-grey-300); border-radius: 6px;">
+                                    <h5 style="margin: 0 0 8px; color: var(--pds-success-600);">✅ Available</h5>
+                                    <ul style="margin: 0; padding-left: 16px; font-size: 14px;">
+                                        <li>Layout System</li>
+                                        <li>Button Components</li>
+                                        <li>Form Controls</li>
+                                        <li>Design Tokens</li>
+                                        <li>Theme System</li>
+                                    </ul>
+                                </div>
+                                <div
+                                    style="padding: 12px; border: 1px solid var(--pds-neutral-grey-300); border-radius: 6px;">
+                                    <h5 style="margin: 0 0 8px; color: var(--pds-warning-600);">🚧 In Progress</h5>
+                                    <ul style="margin: 0; padding-left: 16px; font-size: 14px;">
+                                        <li>Modal System</li>
+                                        <li>Toast Notifications</li>
+                                        <li>Data Tables</li>
+                                        <li>Calendar Components</li>
+                                        <li>Advanced Forms</li>
+                                    </ul>
+                                </div>
+                                <div
+                                    style="padding: 12px; border: 1px solid var(--pds-neutral-grey-300); border-radius: 6px;">
+                                    <h5 style="margin: 0 0 8px; color: var(--pds-neutral-grey-600);">📋 Planned</h5>
+                                    <ul style="margin: 0; padding-left: 16px; font-size: 14px;">
+                                        <li>Charts & Graphs</li>
+                                        <li>Advanced Navigation</li>
+                                        <li>Animation System</li>
+                                        <li>Mobile Components</li>
+                                        <li>Accessibility Tools</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Demo -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Interactive Demo</h3>
+                        </div>
+                        <div class="card-body">
+                            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                                <button class="btn btn-primary" onclick="toggleSidebar()">Toggle Sidebar</button>
+                                <button class="btn btn-outline-secondary" onclick="expandNavSection()">Expand
+                                    Navigation</button>
+                                <button class="btn btn-outline-secondary" onclick="simulateNavigation()">Simulate
+                                    Navigation</button>
+                                <button class="btn btn-success" onclick="toggleTheme()">Toggle Theme</button>
+                            </div>
+                            <p style="margin-top: 16px; color: var(--text-muted); font-size: 14px;">
+                                Try resizing your browser window to see the responsive behavior in action.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay for mobile -->
+    <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+    <script src="js/root.js"></script>
+</body>
+
+</html>
