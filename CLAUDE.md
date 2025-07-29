@@ -93,14 +93,20 @@ The design system is organized into logical component groups with HTMX-powered n
 5. **Modal System** (`content/modals.html`)
    - Comprehensive modal component with header, body, footer sections
    - Multiple size variants: small, medium, large, extra-large
-   - JavaScript API with `PDSModal` class and global functions
+   - JavaScript API with `pds.modal` class and global functions
    - Static backdrop support and focus management
-   - Event system with custom events
+   - Event system with custom events and context passing
 
-6. **Content Components**
+6. **Toast Notifications** (`content/toasts.html`)
+   - Toast notifications with multiple variants: success, error, warning, info
+   - Flexible positioning: top/bottom and left/center/right combinations
+   - Auto-dismiss with configurable timing
+   - In-page alerts for static content notifications
+   - Compatible with existing `js/alert.js` system
+
+7. **Content Components**
    - Card system: `.card` with header, body, footer sections
    - Status badges and progress indicators
-   - Alert banners and toast notifications
    - Foundation elements and design tokens (`content/foundation.html`)
 
 #### Theme System
@@ -138,13 +144,22 @@ All design tokens use CSS custom properties with the `--pds-` prefix:
 - Button group selection and loading state management
 
 #### Modal System JavaScript API
-- `pds.Modal` class - modal management with full lifecycle control and class static methods
-- `showModal(id, options)` - Show modal with configuration options
-- `hideModal(id)` - Hide specific modal
-- `toggleModal(id, options)` - Toggle modal visibility
+- `pds.modal` class - modal management with full lifecycle control and static methods
+- `pds.modal.show(id, options, context)` - Show modal with configuration options and context
+- `pds.modal.hide(id)` - Hide specific modal
+- `pds.modal.toggle(id, options)` - Toggle modal visibility
 - Modal events: `modal.before.show`, `modal.shown`, `modal.before.hide`, `modal.hidden`
 - Focus trap implementation and keyboard navigation
 - Static backdrop support with shake animation
+- Context passing via `data-pds-modal-context` attribute
+
+#### Toast Notification JavaScript API
+- `window.showAlert(options)` - Core alert/toast function with full configuration
+- `window.notify(message, type)` - Quick toast notification function
+- Toast types: `success`, `error`, `warning`, `info`, `primary`, `secondary`, `neutral`
+- Positioning: `top-right`, `top-center`, `top-left`, `bottom-right`, `bottom-center`, `bottom-left`
+- Auto-dismiss with configurable delay and manual close options
+- In-page alerts for static content notifications
 
 #### HTMX Integration
 - Automatic content loading from `./content/` directory
