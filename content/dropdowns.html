@@ -1,0 +1,568 @@
+<div class="content-area">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+        <span class="breadcrumb-item">Design System</span>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-item active">Dropdown Menus</span>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="page-section">
+        <div class="demo-section">
+            <h1 class="section-title">Dropdown Menus</h1>
+            <p class="section-subtitle">Interactive dropdown menus for actions, navigation, and contextual options.</p>
+        </div>
+
+        <!-- Basic Dropdown -->
+        <div class="demo-section">
+            <h2 class="subsection-title">Basic Dropdown</h2>
+            <p class="demo-description">
+                Simple dropdown menu with clickable items and automatic positioning.
+            </p>
+            
+            <div class="demo-flex">
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button">
+                        Actions
+                        <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#" onclick="notify('Edit action selected', 'info')">Edit</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="notify('Duplicate action selected', 'info')">Duplicate</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="notify('Share action selected', 'info')">Share</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#" onclick="notify('Delete action selected', 'warning')">Delete</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="code-block">
+                <pre><code>&lt;div class="dropdown"&gt;
+    &lt;button class="btn btn-primary dropdown-toggle" type="button"&gt;
+        Actions
+        &lt;svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none"&gt;
+            &lt;path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="2" 
+                  stroke-linecap="round" stroke-linejoin="round" /&gt;
+        &lt;/svg&gt;
+    &lt;/button&gt;
+    &lt;ul class="dropdown-menu"&gt;
+        &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Edit&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Duplicate&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Share&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;hr class="dropdown-divider"&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Delete&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <!-- Dropdown with Icons -->
+        <div class="demo-section">
+            <h2 class="subsection-title">Dropdown with Icons</h2>
+            <p class="demo-description">
+                Enhance dropdown items with icons for better visual recognition.
+            </p>
+            
+            <div class="demo-flex">
+                <div class="dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button">
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="8.5" cy="7" r="4"></circle>
+                            <line x1="20" y1="8" x2="20" y2="14"></line>
+                            <line x1="23" y1="11" x2="17" y2="11"></line>
+                        </svg>
+                        User Menu
+                        <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="dropdown-item" href="#" onclick="notify('Profile selected', 'info')">
+                                <svg class="icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                                View Profile
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#" onclick="notify('Settings selected', 'info')">
+                                <svg class="icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none">
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                    <path d="M12 1v6m0 6v6"></path>
+                                </svg>
+                                Settings
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#" onclick="notify('Help selected', 'info')">
+                                <svg class="icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                                </svg>
+                                Help & Support
+                            </a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <a class="dropdown-item" href="#" onclick="notify('Signed out', 'success')">
+                                <svg class="icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none">
+                                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                                    <polyline points="16,17 21,12 16,7"></polyline>
+                                    <line x1="21" y1="12" x2="9" y2="12"></line>
+                                </svg>
+                                Sign Out
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="code-block">
+                <pre><code>&lt;div class="dropdown"&gt;
+    &lt;button class="btn btn-outline-secondary dropdown-toggle" type="button"&gt;
+        User Menu
+        &lt;svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none"&gt;
+            &lt;path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="2" 
+                  stroke-linecap="round" stroke-linejoin="round" /&gt;
+        &lt;/svg&gt;
+    &lt;/button&gt;
+    &lt;ul class="dropdown-menu"&gt;
+        &lt;li&gt;
+            &lt;a class="dropdown-item" href="#"&gt;
+                &lt;svg class="icon" viewBox="0 0 24 24"&gt;...&lt;/svg&gt;
+                View Profile
+            &lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;a class="dropdown-item" href="#"&gt;
+                &lt;svg class="icon" viewBox="0 0 24 24"&gt;...&lt;/svg&gt;
+                Settings
+            &lt;/a&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <!-- Dropdown Positioning -->
+        <div class="demo-section">
+            <h2 class="subsection-title">Dropdown Positioning</h2>
+            <p class="demo-description">
+                Control dropdown positioning with built-in alignment classes.
+            </p>
+            
+            <div class="demo-flex">
+                <div class="dropdown">
+                    <button class="btn btn-info dropdown-toggle" type="button">
+                        Default (Left)
+                        <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action 1</a></li>
+                        <li><a class="dropdown-item" href="#">Action 2</a></li>
+                        <li><a class="dropdown-item" href="#">Action 3</a></li>
+                    </ul>
+                </div>
+                
+                <div class="dropdown">
+                    <button class="btn btn-info dropdown-toggle" type="button">
+                        Right Aligned
+                        <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#">Action 1</a></li>
+                        <li><a class="dropdown-item" href="#">Action 2</a></li>
+                        <li><a class="dropdown-item" href="#">Action 3</a></li>
+                    </ul>
+                </div>
+                
+                <div class="dropdown">
+                    <button class="btn btn-info dropdown-toggle" type="button">
+                        Drop Up
+                        <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-top">
+                        <li><a class="dropdown-item" href="#">Action 1</a></li>
+                        <li><a class="dropdown-item" href="#">Action 2</a></li>
+                        <li><a class="dropdown-item" href="#">Action 3</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="code-block">
+                <pre><code>&lt;!-- Right-aligned dropdown --&gt;
+&lt;ul class="dropdown-menu dropdown-menu-end"&gt;...&lt;/ul&gt;
+
+&lt;!-- Drop-up menu --&gt;
+&lt;ul class="dropdown-menu dropdown-menu-top"&gt;...&lt;/ul&gt;
+
+&lt;!-- Right-aligned drop-up --&gt;
+&lt;ul class="dropdown-menu dropdown-menu-end dropdown-menu-top"&gt;...&lt;/ul&gt;</code></pre>
+            </div>
+        </div>
+
+        <!-- Dropdown Sizes -->
+        <div class="demo-section">
+            <h2 class="subsection-title">Dropdown Sizes</h2>
+            <p class="demo-description">
+                Three size variants: small, default, and large to match your content needs.
+            </p>
+            
+            <div class="demo-flex">
+                <div class="dropdown">
+                    <button class="btn btn-outline-primary dropdown-toggle" type="button">
+                        Small Menu
+                        <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-sm">
+                        <li><a class="dropdown-item" href="#">Edit</a></li>
+                        <li><a class="dropdown-item" href="#">Copy</a></li>
+                        <li><a class="dropdown-item" href="#">Delete</a></li>
+                    </ul>
+                </div>
+                
+                <div class="dropdown">
+                    <button class="btn btn-outline-primary dropdown-toggle" type="button">
+                        Default Menu
+                        <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Edit item</a></li>
+                        <li><a class="dropdown-item" href="#">Copy to clipboard</a></li>
+                        <li><a class="dropdown-item" href="#">Delete permanently</a></li>
+                    </ul>
+                </div>
+                
+                <div class="dropdown">
+                    <button class="btn btn-outline-primary dropdown-toggle" type="button">
+                        Large Menu
+                        <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-lg">
+                        <li><a class="dropdown-item" href="#">Edit this item and modify its properties</a></li>
+                        <li><a class="dropdown-item" href="#">Copy item to clipboard for later use</a></li>
+                        <li><a class="dropdown-item" href="#">Delete this item permanently from the system</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="code-block">
+                <pre><code>&lt;!-- Small dropdown --&gt;
+&lt;ul class="dropdown-menu dropdown-menu-sm"&gt;...&lt;/ul&gt;
+
+&lt;!-- Default dropdown --&gt;
+&lt;ul class="dropdown-menu"&gt;...&lt;/ul&gt;
+
+&lt;!-- Large dropdown --&gt;
+&lt;ul class="dropdown-menu dropdown-menu-lg"&gt;...&lt;/ul&gt;</code></pre>
+            </div>
+        </div>
+
+        <!-- Split Button Dropdown -->
+        <div class="demo-section">
+            <h2 class="subsection-title">Split Button Dropdown</h2>
+            <p class="demo-description">
+                Combine a primary action button with a dropdown menu for additional options.
+            </p>
+            
+            <div class="demo-flex">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-success" onclick="notify('Primary action executed!', 'success')">
+                        Save Document
+                    </button>
+                    <div class="dropdown">
+                        <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split">
+                            <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" onclick="notify('Save as draft', 'info')">Save as Draft</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="notify('Save as template', 'info')">Save as Template</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" onclick="notify('Export as PDF', 'info')">Export as PDF</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="notify('Export as Word', 'info')">Export as Word</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="code-block">
+                <pre><code>&lt;div class="btn-group"&gt;
+    &lt;button type="button" class="btn btn-success"&gt;
+        Save Document
+    &lt;/button&gt;
+    &lt;div class="dropdown"&gt;
+        &lt;button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split"&gt;
+            &lt;span class="sr-only"&gt;Toggle Dropdown&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;ul class="dropdown-menu"&gt;
+            &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Save as Draft&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Save as Template&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;hr class="dropdown-divider"&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Export as PDF&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <!-- Dropdown with Headers -->
+        <div class="demo-section">
+            <h2 class="subsection-title">Dropdown with Headers</h2>
+            <p class="demo-description">
+                Organize dropdown items into logical groups with header labels.
+            </p>
+            
+            <div class="demo-flex">
+                <div class="dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button">
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path d="M12 1v6m0 6v6"></path>
+                            <path d="m21 12-6-6-6 6-6-6"></path>
+                        </svg>
+                        Tools
+                        <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><h6 class="dropdown-header">Edit Actions</h6></li>
+                        <li><a class="dropdown-item" href="#" onclick="notify('Cut selected', 'info')">Cut</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="notify('Copy selected', 'info')">Copy</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="notify('Paste selected', 'info')">Paste</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><h6 class="dropdown-header">Format Options</h6></li>
+                        <li><a class="dropdown-item" href="#" onclick="notify('Bold applied', 'info')">Bold</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="notify('Italic applied', 'info')">Italic</a></li>
+                        <li><a class="dropdown-item disabled" href="#">Underline (unavailable)</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="code-block">
+                <pre><code>&lt;ul class="dropdown-menu"&gt;
+    &lt;li&gt;&lt;h6 class="dropdown-header"&gt;Edit Actions&lt;/h6&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Cut&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Copy&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;hr class="dropdown-divider"&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;h6 class="dropdown-header"&gt;Format Options&lt;/h6&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Bold&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a class="dropdown-item disabled" href="#"&gt;Underline (unavailable)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+            </div>
+        </div>
+
+        <!-- JavaScript API -->
+        <div class="demo-section">
+            <h2 class="subsection-title">JavaScript API</h2>
+            <p class="demo-description">
+                Control dropdowns programmatically with the JavaScript API.
+            </p>
+            
+            <div class="demo-flex">
+                <div class="dropdown" id="jsDropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button">
+                        API Demo
+                        <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Option 1</a></li>
+                        <li><a class="dropdown-item" href="#">Option 2</a></li>
+                        <li><a class="dropdown-item" href="#">Option 3</a></li>
+                    </ul>
+                </div>
+                
+                <button class="btn btn-outline-primary" onclick="pds.dropdown.show('#jsDropdown')">
+                    Show Dropdown
+                </button>
+                <button class="btn btn-outline-secondary" onclick="pds.dropdown.hide('#jsDropdown')">
+                    Hide Dropdown
+                </button>
+                <button class="btn btn-outline-info" onclick="pds.dropdown.toggle('#jsDropdown')">
+                    Toggle Dropdown
+                </button>
+                <button class="btn btn-outline-danger" onclick="pds.dropdown.hideAll()">
+                    Hide All
+                </button>
+            </div>
+            
+            <div class="code-block">
+                <pre><code>// Basic dropdown operations
+pds.dropdown.show('#myDropdown');      // Show dropdown
+pds.dropdown.hide('#myDropdown');      // Hide dropdown
+pds.dropdown.toggle('#myDropdown');    // Toggle dropdown
+pds.dropdown.hideAll();                // Hide all open dropdowns
+
+// Create dropdown instance for advanced control
+const dropdown = new pds.dropdown('#myDropdown', {
+    autoClose: true    // Close when item is clicked
+});
+
+dropdown.show();
+dropdown.hide();
+dropdown.toggle();
+
+// Event listeners
+document.getElementById('myDropdown').addEventListener('dropdown.shown', (e) => {
+    console.log('Dropdown shown:', e.detail.dropdown);
+});
+
+document.getElementById('myDropdown').addEventListener('dropdown.hidden', (e) => {
+    console.log('Dropdown hidden:', e.detail.dropdown);
+});</code></pre>
+            </div>
+        </div>
+
+        <!-- Context Menu -->
+        <div class="demo-section">
+            <h2 class="subsection-title">Context Menu</h2>
+            <p class="demo-description">
+                Right-click context menu for contextual actions. Try right-clicking the area below.
+            </p>
+            
+            <div style="background: var(--pds-neutral-grey-50); border: 2px dashed var(--pds-neutral-grey-300); padding: 3rem; text-align: center; border-radius: var(--pds-border-radius-md); margin: 1rem 0;" id="contextArea">
+                <p style="margin: 0; color: var(--pds-text-secondary);">Right-click here to see the context menu</p>
+            </div>
+            
+            <!-- Context menu (hidden by default) -->
+            <div class="dropdown-menu context-menu" id="contextMenu">
+                <li><a class="dropdown-item dropdown-item-icon" href="#" onclick="notify('Copy selected', 'info')">
+                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    Copy
+                </a></li>
+                <li><a class="dropdown-item dropdown-item-icon" href="#" onclick="notify('Paste selected', 'info')">
+                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                    </svg>
+                    Paste
+                </a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item dropdown-item-icon" href="#" onclick="notify('Inspect selected', 'info')">
+                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+                        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                    </svg>
+                    Inspect Element
+                </a></li>
+            </div>
+            
+            <div class="code-block">
+                <pre><code>&lt;!-- Context menu structure --&gt;
+&lt;div class="dropdown-menu context-menu" id="contextMenu"&gt;
+    &lt;li&gt;&lt;a class="dropdown-item dropdown-item-icon" href="#"&gt;
+        &lt;svg viewBox="0 0 24 24"&gt;...&lt;/svg&gt;
+        Copy
+    &lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a class="dropdown-item dropdown-item-icon" href="#"&gt;
+        &lt;svg viewBox="0 0 24 24"&gt;...&lt;/svg&gt;
+        Paste
+    &lt;/a&gt;&lt;/li&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+// Context menu handling
+document.getElementById('contextArea').addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+    showContextMenu(e.pageX, e.pageY);
+});
+&lt;/script&gt;</code></pre>
+            </div>
+        </div>
+
+        <!-- Best Practices -->
+        <div class="demo-section">
+            <h2 class="subsection-title">Best Practices</h2>
+            <div class="demo-description">
+                <h4>Usage Guidelines</h4>
+                <ul>
+                    <li><strong>Keep menus focused:</strong> Include only related actions to avoid overwhelming users</li>
+                    <li><strong>Use logical grouping:</strong> Group related items and separate with dividers</li>
+                    <li><strong>Provide clear labels:</strong> Use descriptive text and helpful icons</li>
+                    <li><strong>Handle disabled states:</strong> Show disabled items with clear visual indication</li>
+                </ul>
+
+                <h4 style="margin-top: 1.5rem;">Positioning</h4>
+                <ul>
+                    <li><strong>Default positioning:</strong> Dropdown appears below and aligned to the left</li>
+                    <li><strong>Smart positioning:</strong> Automatically adjusts if there's insufficient space</li>
+                    <li><strong>Mobile considerations:</strong> Full-width dropdowns on small screens</li>
+                </ul>
+
+                <h4 style="margin-top: 1.5rem;">Accessibility</h4>
+                <ul>
+                    <li>Keyboard navigation with arrow keys and Enter/Space</li>
+                    <li>Proper ARIA attributes for screen readers</li>
+                    <li>Focus management when opening/closing</li>
+                    <li>ESC key closes dropdown menus</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Context menu functionality
+        function showContextMenu(x, y) {
+            const contextMenu = document.getElementById('contextMenu');
+            
+            // Hide any existing context menus
+            document.querySelectorAll('.context-menu.show').forEach(menu => {
+                menu.classList.remove('show');
+            });
+            
+            // Position and show context menu
+            contextMenu.style.left = x + 'px';
+            contextMenu.style.top = y + 'px';
+            contextMenu.classList.add('show');
+            
+            // Close context menu on next click
+            setTimeout(() => {
+                document.addEventListener('click', function closeContext() {
+                    contextMenu.classList.remove('show');
+                    document.removeEventListener('click', closeContext);
+                }, { once: true });
+            }, 0);
+        }
+        
+        // Set up context menu
+        document.getElementById('contextArea').addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+            showContextMenu(e.pageX, e.pageY);
+        });
+        
+        // Keyboard support for dropdowns
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                pds.dropdown.hideAll();
+                document.querySelectorAll('.context-menu.show').forEach(menu => {
+                    menu.classList.remove('show');
+                });
+            }
+        });
+    </script>
+</div>

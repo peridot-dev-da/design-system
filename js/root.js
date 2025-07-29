@@ -303,6 +303,115 @@ const pds = {
             console.error("Not Implemented")
         }
     },
+    
+    dropdown: class {
+        constructor(element, options = {}) {
+            if (typeof element === 'string') {
+                this.element = document.querySelector(element);
+            } else {
+                this.element = element;
+            }
+            
+            if (!this.element) {
+                console.error('Dropdown element not found');
+                return;
+            }
+            
+            this.options = {
+                autoClose: true,
+                ...options
+            };
+            
+            this.toggleButton = this.element.querySelector('.dropdown-toggle');
+            this.menu = this.element.querySelector('.dropdown-menu');
+            this.isOpen = this.element.classList.contains('show');
+            
+            this.setupEventListeners();
+        }
+        
+        setupEventListeners() {
+            if (this.toggleButton) {
+                this.toggleButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.toggle();
+                });
+            }
+            
+            // Close on item click if autoClose is enabled
+            if (this.menu && this.options.autoClose) {
+                this.menu.addEventListener('click', (e) => {
+                    if (e.target.classList.contains('dropdown-item') && !e.target.classList.contains('disabled')) {
+                        this.hide();
+                    }
+                });
+            }
+        }
+        
+        show() {
+            if (this.isOpen) return;
+            
+            // Hide other open dropdowns
+            pds.dropdown.hideAll();
+            
+            const showEvent = HTMXOverride.makeEvent('dropdown.show', { dropdown: this });
+            this.element.dispatchEvent(showEvent);
+            
+            if (showEvent.defaultPrevented) return;
+            
+            this.element.classList.add('show');
+            this.isOpen = true;
+            
+            const shownEvent = HTMXOverride.makeEvent('dropdown.shown', { dropdown: this });
+            this.element.dispatchEvent(shownEvent);
+        }
+        
+        hide() {
+            if (!this.isOpen) return;
+            
+            const hideEvent = HTMXOverride.makeEvent('dropdown.hide', { dropdown: this });
+            this.element.dispatchEvent(hideEvent);
+            
+            if (hideEvent.defaultPrevented) return;
+            
+            this.element.classList.remove('show');
+            this.isOpen = false;
+            
+            const hiddenEvent = HTMXOverride.makeEvent('dropdown.hidden', { dropdown: this });
+            this.element.dispatchEvent(hiddenEvent);
+        }
+        
+        toggle() {
+            this.isOpen ? this.hide() : this.show();
+        }
+        
+        static getInstance(element) {
+            return new this(element);
+        }
+        
+        static show(element) {
+            const dropdown = this.getInstance(element);
+            if (dropdown) dropdown.show();
+            return dropdown;
+        }
+        
+        static hide(element) {
+            const dropdown = this.getInstance(element);
+            if (dropdown) dropdown.hide();
+            return dropdown;
+        }
+        
+        static toggle(element) {
+            const dropdown = this.getInstance(element);
+            if (dropdown) dropdown.toggle();
+            return dropdown;
+        }
+        
+        static hideAll() {
+            document.querySelectorAll('.dropdown.show').forEach(dropdown => {
+                dropdown.classList.remove('show');
+            });
+        }
+    },
     init() {
         document.addEventListener("click", (e) => {
             /*  Use the `data-pds-modal-context` attribute to pass context
@@ -322,6 +431,19 @@ const pds = {
                 const modal = new this.modal(e.target)
                 if (modal.options.backdrop == "static") { modal.shake() }
                 else { modal.hide() }
+            }
+            // Handle dropdown toggles
+            else if (e.target.classList.contains("dropdown-toggle") || e.target.closest(".dropdown-toggle")) {
+                e.preventDefault();
+                const dropdown = e.target.closest(".dropdown");
+                if (dropdown) {
+                    const instance = new this.dropdown(dropdown);
+                    instance.toggle();
+                }
+            }
+            // Close dropdowns when clicking outside
+            else if (!e.target.closest(".dropdown")) {
+                this.dropdown.hideAll();
             }
         })
     }

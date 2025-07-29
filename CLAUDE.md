@@ -104,7 +104,14 @@ The design system is organized into logical component groups with HTMX-powered n
    - In-page alerts for static content notifications
    - Compatible with existing `js/alert.js` system
 
-7. **Content Components**
+7. **Dropdown Menus** (`content/dropdowns.html`)
+   - Interactive dropdown menus with click/hover triggers
+   - Multiple positioning options: left/right alignment, drop-up/down
+   - Icon support and grouped menu items with headers
+   - Split button dropdowns and context menus
+   - Full keyboard navigation and accessibility support
+
+8. **Content Components**
    - Card system: `.card` with header, body, footer sections
    - Status badges and progress indicators
    - Foundation elements and design tokens (`content/foundation.html`)
@@ -160,6 +167,16 @@ All design tokens use CSS custom properties with the `--pds-` prefix:
 - Positioning: `top-right`, `top-center`, `top-left`, `bottom-right`, `bottom-center`, `bottom-left`
 - Auto-dismiss with configurable delay and manual close options
 - In-page alerts for static content notifications
+
+#### Dropdown Menu JavaScript API
+- `pds.dropdown` class - dropdown management with lifecycle control and static methods
+- `pds.dropdown.show(element)` - Show dropdown menu
+- `pds.dropdown.hide(element)` - Hide dropdown menu
+- `pds.dropdown.toggle(element)` - Toggle dropdown visibility
+- `pds.dropdown.hideAll()` - Hide all open dropdown menus
+- Dropdown events: `dropdown.show`, `dropdown.shown`, `dropdown.hide`, `dropdown.hidden`
+- Automatic positioning and collision detection
+- Context menu support with right-click triggers
 
 #### HTMX Integration
 - Automatic content loading from `./content/` directory
