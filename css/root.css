@@ -2998,7 +2998,6 @@ body {
     visibility: hidden;
     transition: all 0.3s ease;
     backdrop-filter: blur(2px);
-    color: var(--pds-neutral-white);
 }
 
 .modal.show {
@@ -3174,47 +3173,6 @@ body {
     0%, 100% { transform: scale(1) translateY(0); }
     25% { transform: scale(1.02) translateY(-2px); }
     75% { transform: scale(0.98) translateY(2px); }
-}
-
-/* Dark mode support */
-.dark-mode .modal-content {
-    background: var(--pds-neutral-grey-900);
-    border-color: var(--pds-neutral-grey-700);
-}
-
-.dark-mode .modal-header {
-    background: var(--pds-neutral-grey-900);
-    border-color: var(--pds-neutral-grey-700);
-}
-
-.dark-mode .modal-title {
-    color: var(--pds-neutral-white);
-}
-
-.dark-mode .modal-close {
-    color: var(--pds-neutral-grey-400);
-}
-
-.dark-mode .modal-close:hover {
-    background: var(--pds-neutral-grey-800);
-    color: var(--pds-neutral-grey-200);
-}
-
-.dark-mode .modal-footer {
-    background: var(--pds-neutral-grey-800);
-    border-color: var(--pds-neutral-grey-700);
-}
-
-.dark-mode .modal-body::-webkit-scrollbar-track {
-    background: var(--pds-neutral-grey-800);
-}
-
-.dark-mode .modal-body::-webkit-scrollbar-thumb {
-    background: var(--pds-neutral-grey-600);
-}
-
-.dark-mode .modal-body::-webkit-scrollbar-thumb:hover {
-    background: var(--pds-neutral-grey-500);
 }
 
 /* Body class when modal is open */
