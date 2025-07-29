@@ -330,12 +330,7 @@ const pds = {
         }
         
         setupEventListeners() {
-            if (this.toggleButton) {
-                this.toggleButton.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    this.toggle();
-                });
-            }
+            // Don't add individual event listeners here since we handle it globally in init()
             
             // Close on item click if autoClose is enabled
             if (this.menu && this.options.autoClose) {
