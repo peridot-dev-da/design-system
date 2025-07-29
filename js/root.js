@@ -111,14 +111,14 @@ const pds = {
          */
         constructor(modal, options = {}, context = {}) {
             if (modal instanceof HTMLElement) {
-                this.modalId = modal.id
-                this.modal = modal
+                this.elementId = modal.id
+                this.element = modal
             } else {
-                this.modal = document.getElementById(modal);
-                this.modalId = modal;
+                this.element = document.getElementById(modal);
+                this.elementId = modal;
             }
 
-            if (!this.modal) {
+            if (!this.element) {
                 console.error(`Modal with ID "${modal}" not found`);
                 return;
             }
@@ -126,19 +126,20 @@ const pds = {
             this.options = {
                 backdrop: "", // true, false, or 'static'
                 focus: true,    // Auto focus modal when opened
-                ...Object.keys(this.modal.dataset).filter(k => k.indexOf("pdsModal") != -1).reduce((acc, k) => {
-                    acc[k.replace("pdsModal", "").toLowerCase()] = this.modal.dataset[k];
+                ...Object.keys(this.element.dataset).filter(k => k.indexOf("pdsModal") != -1).reduce((acc, k) => {
+                    acc[k.replace("pdsModal", "").toLowerCase()] = this.element.dataset[k];
                     return acc
                 }, {}),
                 ...options // top-predence option override
             };
+
             this.context = context
-            this.dialog = this.modal.querySelector('.modal-dialog') || undefined;
-            this.content = this.modal.querySelector('.modal-content') || undefined;
-            this.header = this.modal.querySelector('.modal-header') || undefined;
-            this.body = this.modal.querySelector('.modal-body') || undefined;
-            this.footer = this.modal.querySelector('.modal-footer') || undefined;
-            this.isOpen = this.modal.classList.contains("show");
+            this.dialog = this.element.querySelector('.modal-dialog') || undefined;
+            this.content = this.element.querySelector('.modal-content') || undefined;
+            this.header = this.element.querySelector('.modal-header') || undefined;
+            this.body = this.element.querySelector('.modal-body') || undefined;
+            this.footer = this.element.querySelector('.modal-footer') || undefined;
+            this.isOpen = this.element.classList.contains("show");
             this.originalFocus = null;
 
             // Set focus trap
@@ -152,23 +153,21 @@ const pds = {
             this.originalFocus = document.activeElement;
 
             // Trigger before show event
-            const beforeShowEvent = new CustomEvent('modal.before.show', {
-                detail: { modal: this }
-            });
-            this.modal.dispatchEvent(beforeShowEvent);
+            const beforeShowEvent = HTMXOverride.makeEvent('modal.before.show', { modal: this });
+            this.element.dispatchEvent(beforeShowEvent);
 
             if (beforeShowEvent.defaultPrevented) return;
 
             // Show modal
-            this.modal.classList.add('show');
+            this.element.classList.add('show');
             document.body.classList.add('modal-open');
             this.isOpen = true;
 
             // Focus management
             if (this.options.focus) {
                 setTimeout(() => {
-                    const focusTarget = this.modal.querySelector('[autofocus]') ||
-                        this.modal.querySelector('.modal-close') ||
+                    const focusTarget = this.element.querySelector('[autofocus]') ||
+                        this.element.querySelector('.modal-close') ||
                         this.content;
                     if (focusTarget) focusTarget.focus();
                 }, 150);
@@ -176,10 +175,8 @@ const pds = {
 
             // Trigger shown event
             setTimeout(() => {
-                const shownEvent = new CustomEvent('modal.shown', {
-                    detail: { modal: this }
-                });
-                this.modal.dispatchEvent(shownEvent);
+                const shownEvent = HTMXOverride.makeEvent('modal.shown', { modal: this });
+                this.element.dispatchEvent(shownEvent);
             }, 300);
         }
 
@@ -187,15 +184,13 @@ const pds = {
             if (!this.isOpen) return;
 
             // Trigger before hide event
-            const beforeHideEvent = new CustomEvent('modal.before.hide', {
-                detail: { modal: this }
-            });
-            this.modal.dispatchEvent(beforeHideEvent);
+            const beforeHideEvent = HTMXOverride.makeEvent('modal.before.hide', { modal: this });
+            this.element.dispatchEvent(beforeHideEvent);
 
             if (beforeHideEvent.defaultPrevented) return;
 
             // Hide modal
-            this.modal.classList.remove('show');
+            this.element.classList.remove('show');
             document.body.classList.remove('modal-open');
             this.isOpen = false;
 
@@ -206,10 +201,8 @@ const pds = {
 
             // Trigger hidden event
             setTimeout(() => {
-                const hiddenEvent = new CustomEvent('modal.hidden', {
-                    detail: { modal: this }
-                });
-                this.modal.dispatchEvent(hiddenEvent);
+                const hiddenEvent = HTMXOverride.makeEvent('modal.hidden', { modal: this });
+                this.element.dispatchEvent(hiddenEvent);
             }, 300);
         }
 
@@ -218,14 +211,14 @@ const pds = {
         }
 
         shake() {
-            this.modal.classList.add('static-backdrop');
+            this.element.classList.add('static-backdrop');
             setTimeout(() => {
-                this.modal.classList.remove('static-backdrop');
+                this.element.classList.remove('static-backdrop');
             }, 300);
         }
 
         setTitle(title) {
-            const titleElement = this.modal.querySelector('.modal-title');
+            const titleElement = this.element.querySelector('.modal-title');
             if (titleElement) {
                 titleElement.textContent = title;
             }
@@ -254,7 +247,7 @@ const pds = {
         }
 
         setupFocusTrap() {
-            const focusableElements = this.modal.querySelectorAll(
+            const focusableElements = this.element.querySelectorAll(
                 'a[href], button, textarea, input[type="text"], input[type="radio"], input[type="checkbox"], select'
             );
 
@@ -263,7 +256,7 @@ const pds = {
             const firstFocusable = focusableElements[0];
             const lastFocusable = focusableElements[focusableElements.length - 1];
 
-            this.modal.addEventListener('keydown', (e) => {
+            this.element.addEventListener('keydown', (e) => {
                 if (e.key === 'Tab' && this.isOpen) {
                     if (e.shiftKey) {
                         if (document.activeElement === firstFocusable) {
@@ -281,26 +274,26 @@ const pds = {
         }
 
         // Create and return a modal instance
-        static getInstance(modalId, options = {}, context = {}) {
-            return new this(modalId, options, context);
+        static getInstance(elementId, options = {}, context = {}) {
+            return new this(elementId, options, context);
         }
 
-        static show(modalId, options = {}, context = {}) {
-            const modal = this.getInstance(modalId, options, context);
+        static show(elementId, options = {}, context = {}) {
+            const modal = this.getInstance(elementId, options, context);
             if (modal) modal.show();
             return modal;
         }
 
         // Hide modal
-        static hide(modalId) {
-            const modal = this.getInstance(modalId);
+        static hide(elementId) {
+            const modal = this.getInstance(elementId);
             if (modal) modal.hide();
             return modal;
         }
 
         // Toggle modal
-        static toggle(modalId, options = {}) {
-            const modal = this.getInstance(modalId, options);
+        static toggle(elementId, options = {}) {
+            const modal = this.getInstance(elementId, options);
             if (modal) modal.toggle();
             return modal;
         }
@@ -319,7 +312,7 @@ const pds = {
             */
             if (e.target.hasAttribute("data-pds-modal-target")) {
                 const id = e.target.dataset.pdsModalTarget
-                this.modal.show(id, {}, e.target.dataset.pdsModalContext)
+                this.modal.show(id, {}, context = e.target.dataset.pdsModalContext ? JSON.parse(e.target.dataset.pdsModalContext) : {})
             }
             else if (e.target.closest("[data-pds-modal-dismiss]")) {
                 const modal = new this.modal(e.target.closest(".modal"))

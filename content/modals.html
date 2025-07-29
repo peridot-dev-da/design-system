@@ -10,7 +10,8 @@
     <div class="page-section">
         <div class="demo-section">
             <h1 class="section-title">Modal Components</h1>
-            <p class="section-subtitle">Interactive modal dialogs with multiple sizes, proper accessibility features, and theme support.</p>
+            <p class="section-subtitle">Interactive modal dialogs with multiple sizes, proper accessibility features,
+                and theme support.</p>
         </div>
 
         <!-- Basic Modal -->
@@ -19,10 +20,11 @@
             <p class="demo-description">
                 A simple modal with header, body, and footer sections.
             </p>
-            
+
             <div class="demo-flex">
                 <button class="btn btn-primary" data-pds-modal-target="basicModal">
-                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="12" cy="12" r="3"></circle>
                         <path d="M12 1v6m0 6v6"></path>
                         <path d="m21 12-6-6-6 6-6-6"></path>
@@ -30,7 +32,7 @@
                     Open Basic Modal
                 </button>
             </div>
-            
+
             <div class="code-block">
                 <pre><code>&lt;!-- Trigger Button --&gt;
 &lt;button class="btn btn-primary" data-pds-modal-target="basicModal"&gt;
@@ -73,7 +75,7 @@
             <p class="demo-description">
                 Modals come in four different sizes: small, medium (default), large, and extra-large.
             </p>
-            
+
             <div class="demo-flex">
                 <button class="btn btn-outline-primary" data-pds-modal-target="smallModal">
                     Small Modal
@@ -88,7 +90,7 @@
                     Extra Large Modal
                 </button>
             </div>
-            
+
             <div class="code-block">
                 <pre><code>&lt;!-- Small Modal --&gt;
 &lt;div class="modal modal-sm" id="smallModal"&gt;
@@ -118,19 +120,21 @@
             <p class="demo-description">
                 A modal designed for confirmation dialogs with destructive actions.
             </p>
-            
+
             <div class="demo-flex">
                 <button class="btn btn-danger" data-pds-modal-target="confirmModal">
-                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
                         <polyline points="3,6 5,6 21,6"></polyline>
-                        <path d="m19,6v14a2,2 0 0,1 -2,2H7a2,2 0 0,1 -2,-2V6m3,0V4a2,2 0 0,1 2,-2h4a2,2 0 0,1 2,2v2"></path>
+                        <path d="m19,6v14a2,2 0 0,1 -2,2H7a2,2 0 0,1 -2,-2V6m3,0V4a2,2 0 0,1 2,-2h4a2,2 0 0,1 2,2v2">
+                        </path>
                         <line x1="10" y1="11" x2="10" y2="17"></line>
                         <line x1="14" y1="11" x2="14" y2="17"></line>
                     </svg>
                     Delete Item
                 </button>
             </div>
-            
+
             <div class="code-block">
                 <pre><code>&lt;div class="modal modal-sm" id="confirmModal"&gt;
     &lt;div class="modal-dialog"&gt;
@@ -167,10 +171,11 @@
             <p class="demo-description">
                 A modal containing a form with proper validation and accessibility.
             </p>
-            
+
             <div class="demo-flex">
                 <button class="btn btn-primary" data-pds-modal-target="formModal">
-                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
                         <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                         <circle cx="8.5" cy="7" r="4"></circle>
                         <line x1="20" y1="8" x2="20" y2="14"></line>
@@ -179,7 +184,7 @@
                     Add User
                 </button>
             </div>
-            
+
             <div class="code-block">
                 <pre><code>&lt;div class="modal" id="formModal"&gt;
     &lt;div class="modal-dialog"&gt;
@@ -220,12 +225,14 @@
         <div class="demo-section">
             <h2 class="subsection-title">Static Backdrop</h2>
             <p class="demo-description">
-                A modal that cannot be closed by clicking the backdrop.
+                A modal that cannot be closed by clicking the backdrop. Options can be set directly on the modal
+                element.
             </p>
-            
+
             <div class="demo-flex">
                 <button class="btn btn-warning" data-pds-modal-target="staticModal">
-                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
                         <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
                         <circle cx="12" cy="16" r="1"></circle>
                         <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
@@ -233,18 +240,127 @@
                     Static Modal
                 </button>
             </div>
-            
+
             <div class="code-block">
-                <pre><code>&lt;!-- Trigger with static backdrop --&gt;
-&lt;button class="btn btn-warning" 
-        data-pds-modal-target="staticModal" 
-        data-modal-backdrop="static"&gt;
+                <pre><code>&lt;!-- Trigger button --&gt;
+&lt;button class="btn btn-warning" data-pds-modal-target="staticModal"&gt;
     Static Modal
 &lt;/button&gt;
 
+&lt;!-- Modal with data attributes for options --&gt;
+&lt;div class="modal modal-sm" id="staticModal" data-pds-modal-backdrop="static"&gt;
+    &lt;div class="modal-dialog"&gt;...&lt;/div&gt;
+&lt;/div&gt;
+
 &lt;!-- Or via JavaScript --&gt;
 &lt;script&gt;
-showModal('staticModal', { backdrop: 'static' });
+pds.modal.show('staticModal', { backdrop: 'static' });
+&lt;/script&gt;</code></pre>
+            </div>
+        </div>
+
+        <!-- Modal with Context -->
+        <div class="demo-section">
+            <h2 class="subsection-title">Modal with Context Data</h2>
+            <p class="demo-description">
+                Pass context data to modals using <code>data-pds-modal-context</code> attribute with JSON-formatted
+                strings.
+            </p>
+
+            <div class="demo-flex">
+                <button class="btn btn-info" data-pds-modal-target="contextModal"
+                    data-pds-modal-context='{"userId": 123, "action": "edit", "name": "John Doe"}'>
+                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 20h9"></path>
+                        <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                    </svg>
+                    Edit User (Context)
+                </button>
+
+                <button class="btn btn-success" data-pds-modal-target="contextModal"
+                    data-pds-modal-context='{"productId": 456, "action": "purchase", "price": 99.99}'>
+                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    Buy Product (Context)
+                </button>
+            </div>
+
+            <div class="code-block">
+                <pre><code>&lt;!-- Trigger with context data --&gt;
+&lt;button class="btn btn-info" 
+        data-pds-modal-target="contextModal"
+        data-pds-modal-context='{"userId": 123, "action": "edit", "name": "John Doe"}'&gt;
+    Edit User
+&lt;/button&gt;
+
+&lt;button class="btn btn-success" 
+        data-pds-modal-target="contextModal"
+        data-pds-modal-context='{"productId": 456, "action": "purchase", "price": 99.99}'&gt;
+    Buy Product
+&lt;/button&gt;
+
+&lt;!-- Modal that receives context --&gt;
+&lt;div class="modal" id="contextModal"&gt;
+    &lt;div class="modal-dialog"&gt;
+        &lt;div class="modal-content"&gt;
+            &lt;div class="modal-header"&gt;
+                &lt;h3 class="modal-title"&gt;Context Modal&lt;/h3&gt;
+                &lt;button class="modal-close" data-pds-modal-dismiss&gt;&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class="modal-body"&gt;
+                &lt;div id="context-display"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- JavaScript to handle context --&gt;
+&lt;script&gt;
+document.getElementById('contextModal').addEventListener('modal.shown', (e) =&gt; {
+    const modal = e.detail.modal;
+    const context = modal.context;
+    document.getElementById('context-display').innerHTML = 
+        `&lt;pre&gt;${JSON.stringify(context, null, 2)}&lt;/pre&gt;`;
+});
+&lt;/script&gt;</code></pre>
+            </div>
+        </div>
+
+        <!-- Data Attributes Reference -->
+        <div class="demo-section">
+            <h2 class="subsection-title">Data Attributes Reference</h2>
+            <p class="demo-description">
+                Complete reference for all supported data attributes for modal configuration.
+            </p>
+
+            <div class="code-block">
+                <pre><code>&lt;!-- Modal Options via Data Attributes --&gt;
+&lt;div class="modal" id="myModal" 
+     data-pds-modal-backdrop="static"    &lt;!-- true, false, or 'static' --&gt;
+     data-pds-modal-focus="false"        &lt;!-- Auto-focus on show --&gt;
+     data-pds-modal-keyboard="true"&gt;     &lt;!-- Allow ESC key to close --&gt;
+    &lt;div class="modal-dialog"&gt;...&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Trigger Attributes --&gt;
+&lt;button data-pds-modal-target="myModal"              &lt;!-- Required: Modal ID to open --&gt;
+        data-pds-modal-context='{"key": "value"}'&gt;   &lt;!-- Optional: JSON context data --&gt;
+    Open Modal
+&lt;/button&gt;
+
+&lt;!-- Close/Dismiss Attributes --&gt;
+&lt;button data-pds-modal-dismiss&gt;Close Modal&lt;/button&gt;
+
+&lt;!-- Access context in JavaScript --&gt;
+&lt;script&gt;
+const modal = pds.modal.getInstance('myModal');
+console.log(modal.context); // Access passed context data
+console.log(modal.options); // Access merged options
 &lt;/script&gt;</code></pre>
             </div>
         </div>
@@ -255,7 +371,7 @@ showModal('staticModal', { backdrop: 'static' });
             <p class="demo-description">
                 Control modals programmatically with the JavaScript API.
             </p>
-            
+
             <div class="demo-flex">
                 <button class="btn btn-primary" onclick="pds.modal.show('jsModal')">
                     Show Modal
@@ -270,7 +386,7 @@ showModal('staticModal', { backdrop: 'static' });
                     Update Content
                 </button>
             </div>
-            
+
             <div class="code-block">
                 <pre><code>// Basic modal operations
 pds.modal.show('modalId');                    // Show modal
@@ -303,14 +419,15 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
     </div>
 
     <!-- Modal Examples -->
-    
+
     <!-- Basic Modal -->
     <div class="modal" id="basicModal">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h3 class="modal-title">
-                        <svg class="icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <svg class="icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor"
+                            stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="12" cy="12" r="10"></circle>
                             <line x1="12" y1="16" x2="12" y2="12"></line>
                             <line x1="12" y1="8" x2="12.01" y2="8"></line>
@@ -318,21 +435,24 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
                         Basic Modal
                     </h3>
                     <button type="button" class="modal-close" data-pds-modal-dismiss>
-                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="18" y1="6" x2="6" y2="18"></line>
                             <line x1="6" y1="6" x2="18" y2="18"></line>
                         </svg>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>This is a basic modal with standard styling and functionality. It demonstrates the typical structure of a modal dialog with header, body, and footer sections.</p>
+                    <p>This is a basic modal with standard styling and functionality. It demonstrates the typical
+                        structure of a modal dialog with header, body, and footer sections.</p>
                     <p>You can close this modal by clicking the X button or clicking outside the modal.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-pds-modal-dismiss>
                         Cancel
                     </button>
-                    <button type="button" class="btn btn-primary" onclick="alert('Changes saved!'); pds.modal.hide('basicModal');">
+                    <button type="button" class="btn btn-primary"
+                        onclick="alert('Changes saved!'); pds.modal.hide('basicModal');">
                         Save Changes
                     </button>
                 </div>
@@ -347,7 +467,8 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
                 <div class="modal-header">
                     <h3 class="modal-title">Small Modal</h3>
                     <button type="button" class="modal-close" data-pds-modal-dismiss>
-                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="18" y1="6" x2="6" y2="18"></line>
                             <line x1="6" y1="6" x2="18" y2="18"></line>
                         </svg>
@@ -372,14 +493,16 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
                 <div class="modal-header">
                     <h3 class="modal-title">Medium Modal</h3>
                     <button type="button" class="modal-close" data-pds-modal-dismiss>
-                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="18" y1="6" x2="6" y2="18"></line>
                             <line x1="6" y1="6" x2="18" y2="18"></line>
                         </svg>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>This is a medium-sized modal (default size). It provides a good balance between screen real estate and content space.</p>
+                    <p>This is a medium-sized modal (default size). It provides a good balance between screen real
+                        estate and content space.</p>
                     <p>Perfect for forms, detailed information, or moderate amounts of content.</p>
                 </div>
                 <div class="modal-footer">
@@ -398,14 +521,16 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
                 <div class="modal-header">
                     <h3 class="modal-title">Large Modal</h3>
                     <button type="button" class="modal-close" data-pds-modal-dismiss">
-                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="18" y1="6" x2="6" y2="18"></line>
                             <line x1="6" y1="6" x2="18" y2="18"></line>
                         </svg>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>This is a large modal that takes up more screen space. It's ideal for complex forms, data tables, or content that requires more room.</p>
+                    <p>This is a large modal that takes up more screen space. It's ideal for complex forms, data tables,
+                        or content that requires more room.</p>
                     <div class="demo-grid">
                         <div class="demo-item">
                             <h4>Example Content</h4>
@@ -433,19 +558,22 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
                 <div class="modal-header">
                     <h3 class="modal-title">Extra Large Modal</h3>
                     <button type="button" class="modal-close" data-pds-modal-dismiss">
-                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="18" y1="6" x2="6" y2="18"></line>
                             <line x1="6" y1="6" x2="18" y2="18"></line>
                         </svg>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>This is an extra-large modal that utilizes maximum screen space while maintaining reasonable margins.</p>
+                    <p>This is an extra-large modal that utilizes maximum screen space while maintaining reasonable
+                        margins.</p>
                     <p>Perfect for dashboards, detailed reports, or any content that benefits from a wide layout.</p>
                     <div class="demo-grid">
                         <div class="demo-item">
                             <h4>Wide Layout</h4>
-                            <p>Extra large modals can display complex data tables, charts, or multi-column layouts effectively.</p>
+                            <p>Extra large modals can display complex data tables, charts, or multi-column layouts
+                                effectively.</p>
                         </div>
                         <div class="demo-item">
                             <h4>More Space</h4>
@@ -472,15 +600,19 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
             <div class="modal-content">
                 <div class="modal-header">
                     <h3 class="modal-title">
-                        <svg class="icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                        <svg class="icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor"
+                            stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
+                            </path>
                             <line x1="12" y1="9" x2="12" y2="13"></line>
                             <line x1="12" y1="17" x2="12.01" y2="17"></line>
                         </svg>
                         Confirm Delete
                     </h3>
                     <button type="button" class="modal-close" data-pds-modal-dismiss>
-                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="18" y1="6" x2="6" y2="18"></line>
                             <line x1="6" y1="6" x2="18" y2="18"></line>
                         </svg>
@@ -493,7 +625,8 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
                     <button type="button" class="btn btn-secondary" data-pds-modal-dismiss>
                         Cancel
                     </button>
-                    <button type="button" class="btn btn-danger" onclick="alert('Item deleted!'); pds.modal.hide('confirmModal');">
+                    <button type="button" class="btn btn-danger"
+                        onclick="alert('Item deleted!'); pds.modal.hide('confirmModal');">
                         Delete
                     </button>
                 </div>
@@ -507,7 +640,8 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
             <div class="modal-content">
                 <div class="modal-header">
                     <h3 class="modal-title">
-                        <svg class="icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <svg class="icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor"
+                            stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                             <circle cx="8.5" cy="7" r="4"></circle>
                             <line x1="20" y1="8" x2="20" y2="14"></line>
@@ -516,7 +650,8 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
                         Add New User
                     </h3>
                     <button type="button" class="modal-close" data-pds-modal-dismiss>
-                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="18" y1="6" x2="6" y2="18"></line>
                             <line x1="6" y1="6" x2="18" y2="18"></line>
                         </svg>
@@ -560,7 +695,8 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
             <div class="modal-content">
                 <div class="modal-header">
                     <h3 class="modal-title">
-                        <svg class="icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <svg class="icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor"
+                            stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
                             <circle cx="12" cy="16" r="1"></circle>
                             <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
@@ -568,7 +704,8 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
                         Static Backdrop
                     </h3>
                     <button type="button" class="modal-close" data-pds-modal-dismiss>
-                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="18" y1="6" x2="6" y2="18"></line>
                             <line x1="6" y1="6" x2="18" y2="18"></line>
                         </svg>
@@ -587,6 +724,49 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
         </div>
     </div>
 
+    <!-- Context Modal -->
+    <div class="modal" id="contextModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">
+                        <svg class="icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor"
+                            stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="16" x2="12" y2="12"></line>
+                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                        </svg>
+                        Context Modal
+                    </h3>
+                    <button type="button" class="modal-close" data-pds-modal-dismiss>
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>This modal receives context data from the trigger button.</p>
+                    <div id="context-display" class="alert alert-info">
+                        <strong>Context Data:</strong>
+                        <pre id="context-json">No context data available</pre>
+                    </div>
+                    <p>The context data is automatically parsed from the <code>data-pds-modal-context</code> attribute
+                        and made available through the modal instance.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-pds-modal-dismiss>
+                        Close
+                    </button>
+                    <button type="button" class="btn btn-primary" onclick="alert('Action performed with context!')">
+                        Perform Action
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- JavaScript API Modal -->
     <div class="modal" id="jsModal">
         <div class="modal-dialog">
@@ -594,7 +774,8 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
                 <div class="modal-header">
                     <h3 class="modal-title">JavaScript API Demo</h3>
                     <button type="button" class="modal-close" data-pds-modal-dismiss>
-                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="18" y1="6" x2="6" y2="18"></line>
                             <line x1="6" y1="6" x2="18" y2="18"></line>
                         </svg>
@@ -620,7 +801,7 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
             const name = document.getElementById('userName').value;
             const email = document.getElementById('userEmail').value;
             const role = document.getElementById('userRole').value;
-            
+
             if (name && email) {
                 alert(`User added successfully!\nName: ${name}\nEmail: ${email}\nRole: ${role}`);
                 document.getElementById('userForm').reset();
@@ -649,22 +830,35 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
                     </button>
                 `);
             }
-            
+
             // Show the modal if it's not already open
             if (!modal.isOpen) {
                 showModal('jsModal');
             }
         }
 
+        document.addEventListener('modal.shown', function (e) {
+            const modal = e.detail.modal;
+            if(modal.elementId == "contextModal"){
+                const contextDisplay = modal.element.querySelector('#context-json');
+
+                if (modal.context && contextDisplay) {
+                    contextDisplay.textContent = JSON.stringify(modal.context, null, 2);
+                } else if (contextDisplay) {
+                    contextDisplay.textContent = 'No context data available';
+                }
+            }
+        });
+
         // Add some example event listeners
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const basicModal = document.getElementById('basicModal');
             if (basicModal) {
-                basicModal.addEventListener('modal.shown', function(e) {
+                basicModal.addEventListener('modal.shown', function (e) {
                     console.log('Basic modal shown:', e.detail);
                 });
 
-                basicModal.addEventListener('modal.hidden', function(e) {
+                basicModal.addEventListener('modal.hidden', function (e) {
                     console.log('Basic modal hidden:', e.detail);
                 });
             }
