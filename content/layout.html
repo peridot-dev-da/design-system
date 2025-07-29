@@ -1,31 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+<div class="content-area">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+        <span class="breadcrumb-item">Design System</span>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-item active">Layout System</span>
+    </nav>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Layout System - Design System</title>
-    <link rel="stylesheet" href="./css/root.css">
-    <script>
-        (function () {
-            const savedTheme = localStorage.getItem('theme');
-            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-            if (savedTheme === 'dark' || (savedTheme === null && systemPrefersDark)) {
-                document.documentElement.classList.add('dark-mode');
-                localStorage.setItem('theme', 'dark');
-            } else if (savedTheme === 'light') {
-                document.documentElement.classList.add('light-mode');
-                localStorage.setItem('theme', 'dark');
-            }
-        })()
-    </script>
-</head>
-
-<body>
-    <button class="theme-toggle btn btn-primary" onclick="toggleTheme()">🌙 Toggle Theme</button>
-
-    <div class="container">
+    <div class="page-section">
         <div class="section">
             <h1 class="section-title">Layout System</h1>
             <p class="section-subtitle">Comprehensive layout components for building dashboard interfaces</p>
@@ -210,7 +191,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="content-area">
+                            <div class="content-area-x">
                                 <div class="card-body">
                                     <div class="demo-content" style="height: 200px;">
                                         Main Content Area
@@ -326,8 +307,4 @@
             </div>
         </div>
     </div>
-
-    <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
-    <link rel="stylesheet" href="./css/root.css">
-    <script src="js/root.js"></script>
-</body>
+</div>

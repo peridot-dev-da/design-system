@@ -138,8 +138,7 @@ All design tokens use CSS custom properties with the `--pds-` prefix:
 - Button group selection and loading state management
 
 #### Modal System JavaScript API
-- `PDSModal` class - Individual modal management with full lifecycle control
-- `PDSModals` object - Global modal coordination and instance management
+- `pds.Modal` class - modal management with full lifecycle control and class static methods
 - `showModal(id, options)` - Show modal with configuration options
 - `hideModal(id)` - Hide specific modal
 - `toggleModal(id, options)` - Toggle modal visibility

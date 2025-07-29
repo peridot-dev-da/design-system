@@ -1,99 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modal Components - PDS</title>
-    <link rel="stylesheet" href="css/root.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
-</head>
-<body>
-    <div class="dashboard-layout">
-        <!-- Sidebar Navigation -->
-        <div class="sidebar" id="sidebar">
-            <div class="logo-container">
-                <h2 class="logo">PDS</h2>
-            </div>
-            
-            <nav class="nav-menu">
-                <div class="nav-section">
-                    <div class="nav-section-title">Components</div>
-                    <a href="foundation.html" class="nav-link">
-                        <i data-feather="grid-3x3" class="nav-icon"></i>
-                        Foundation
-                    </a>
-                    <a href="buttons.html" class="nav-link">
-                        <i data-feather="mouse-pointer" class="nav-icon"></i>
-                        Buttons
-                    </a>
-                    <a href="forms.html" class="nav-link">
-                        <i data-feather="edit" class="nav-icon"></i>
-                        Forms
-                    </a>
-                    <a href="modals.html" class="nav-link active">
-                        <i data-feather="square" class="nav-icon"></i>
-                        Modals
-                    </a>
-                </div>
-                
-                <div class="nav-section">
-                    <div class="nav-section-title">Layout</div>
-                    <a href="base.html" class="nav-link">
-                        <i data-feather="layout" class="nav-icon"></i>
-                        Base Layout
-                    </a>
-                </div>
-            </nav>
+<div class="content-area">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+        <span class="breadcrumb-item">Design System</span>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-item active">Modal Components</span>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="page-section">
+        <div class="demo-section">
+            <h1 class="section-title">Modal Components</h1>
+            <p class="section-subtitle">Interactive modal dialogs with multiple sizes, proper accessibility features, and theme support.</p>
         </div>
 
-        <!-- Main Content Area -->
-        <div class="main-content">
-            <!-- Navigation Header -->
-            <div class="main-header">
-                <div class="header-left">
-                    <button class="btn btn-icon" id="hamburgerToggle" onclick="toggleSidebar()">
-                        <i data-feather="menu"></i>
-                    </button>
-                    <h1 class="page-title">Modal Components</h1>
-                </div>
-                
-                <div class="header-right">
-                    <button class="btn btn-icon" onclick="toggleTheme()">
-                        <svg id="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
-                    </button>
-                </div>
+        <!-- Basic Modal -->
+        <div class="demo-section">
+            <h2 class="subsection-title">Basic Modal</h2>
+            <p class="demo-description">
+                A simple modal with header, body, and footer sections.
+            </p>
+            
+            <div class="demo-flex">
+                <button class="btn btn-primary" data-pds-modal-target="basicModal">
+                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M12 1v6m0 6v6"></path>
+                        <path d="m21 12-6-6-6 6-6-6"></path>
+                    </svg>
+                    Open Basic Modal
+                </button>
             </div>
-
-            <!-- Page Content -->
-            <div class="content-area">
-                <div class="container-fluid">
-                    <div class="page-header mb-6">
-                        <h1 class="page-heading">Modal Components</h1>
-                        <p class="page-description">
-                            Interactive modal dialogs with multiple sizes, proper accessibility features, and theme support.
-                        </p>
-                    </div>
-
-                    <!-- Basic Modal -->
-                    <section class="component-section mb-8">
-                        <h2 class="section-title">Basic Modal</h2>
-                        <p class="section-description">
-                            A simple modal with header, body, and footer sections.
-                        </p>
-                        
-                        <div class="example-container">
-                            <div class="example-preview">
-                                <button class="btn btn-primary" data-modal-target="basicModal">
-                                    <i data-feather="eye"></i>
-                                    Open Basic Modal
-                                </button>
-                            </div>
-                            
-                            <div class="example-code">
-                                <pre><code>&lt;!-- Trigger Button --&gt;
-&lt;button class="btn btn-primary" data-modal-target="basicModal"&gt;
+            
+            <div class="code-block">
+                <pre><code>&lt;!-- Trigger Button --&gt;
+&lt;button class="btn btn-primary" data-pds-modal-target="basicModal"&gt;
     Open Basic Modal
 &lt;/button&gt;
 
@@ -103,11 +43,11 @@
         &lt;div class="modal-content"&gt;
             &lt;div class="modal-header"&gt;
                 &lt;h3 class="modal-title"&gt;
-                    &lt;i data-feather="info" class="icon"&gt;&lt;/i&gt;
+                    &lt;svg class="icon" viewBox="0 0 24 24"&gt;...&lt;/svg&gt;
                     Basic Modal
                 &lt;/h3&gt;
                 &lt;button type="button" class="modal-close" data-modal-dismiss&gt;
-                    &lt;i data-feather="x"&gt;&lt;/i&gt;
+                    &lt;svg viewBox="0 0 24 24"&gt;...&lt;/svg&gt;
                 &lt;/button&gt;
             &lt;/div&gt;
             &lt;div class="modal-body"&gt;
@@ -124,37 +64,33 @@
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;</code></pre>
-                            </div>
-                        </div>
-                    </section>
+            </div>
+        </div>
 
-                    <!-- Modal Sizes -->
-                    <section class="component-section mb-8">
-                        <h2 class="section-title">Modal Sizes</h2>
-                        <p class="section-description">
-                            Modals come in four different sizes: small, medium (default), large, and extra-large.
-                        </p>
-                        
-                        <div class="example-container">
-                            <div class="example-preview">
-                                <div class="btn-group">
-                                    <button class="btn btn-outline-primary" data-modal-target="smallModal">
-                                        Small Modal
-                                    </button>
-                                    <button class="btn btn-outline-primary" data-modal-target="mediumModal">
-                                        Medium Modal
-                                    </button>
-                                    <button class="btn btn-outline-primary" data-modal-target="largeModal">
-                                        Large Modal
-                                    </button>
-                                    <button class="btn btn-outline-primary" data-modal-target="extraLargeModal">
-                                        Extra Large Modal
-                                    </button>
-                                </div>
-                            </div>
-                            
-                            <div class="example-code">
-                                <pre><code>&lt;!-- Small Modal --&gt;
+        <!-- Modal Sizes -->
+        <div class="demo-section">
+            <h2 class="subsection-title">Modal Sizes</h2>
+            <p class="demo-description">
+                Modals come in four different sizes: small, medium (default), large, and extra-large.
+            </p>
+            
+            <div class="demo-flex">
+                <button class="btn btn-outline-primary" data-pds-modal-target="smallModal">
+                    Small Modal
+                </button>
+                <button class="btn btn-outline-primary" data-pds-modal-target="mediumModal">
+                    Medium Modal
+                </button>
+                <button class="btn btn-outline-primary" data-pds-modal-target="largeModal">
+                    Large Modal
+                </button>
+                <button class="btn btn-outline-primary" data-pds-modal-target="extraLargeModal">
+                    Extra Large Modal
+                </button>
+            </div>
+            
+            <div class="code-block">
+                <pre><code>&lt;!-- Small Modal --&gt;
 &lt;div class="modal modal-sm" id="smallModal"&gt;
     &lt;div class="modal-dialog"&gt;...&lt;/div&gt;
 &lt;/div&gt;
@@ -173,36 +109,39 @@
 &lt;div class="modal modal-xl" id="extraLargeModal"&gt;
     &lt;div class="modal-dialog"&gt;...&lt;/div&gt;
 &lt;/div&gt;</code></pre>
-                            </div>
-                        </div>
-                    </section>
+            </div>
+        </div>
 
-                    <!-- Confirmation Modal -->
-                    <section class="component-section mb-8">
-                        <h2 class="section-title">Confirmation Modal</h2>
-                        <p class="section-description">
-                            A modal designed for confirmation dialogs with destructive actions.
-                        </p>
-                        
-                        <div class="example-container">
-                            <div class="example-preview">
-                                <button class="btn btn-danger" data-modal-target="confirmModal">
-                                    <i data-feather="trash-2"></i>
-                                    Delete Item
-                                </button>
-                            </div>
-                            
-                            <div class="example-code">
-                                <pre><code>&lt;div class="modal modal-sm" id="confirmModal"&gt;
+        <!-- Confirmation Modal -->
+        <div class="demo-section">
+            <h2 class="subsection-title">Confirmation Modal</h2>
+            <p class="demo-description">
+                A modal designed for confirmation dialogs with destructive actions.
+            </p>
+            
+            <div class="demo-flex">
+                <button class="btn btn-danger" data-pds-modal-target="confirmModal">
+                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="3,6 5,6 21,6"></polyline>
+                        <path d="m19,6v14a2,2 0 0,1 -2,2H7a2,2 0 0,1 -2,-2V6m3,0V4a2,2 0 0,1 2,-2h4a2,2 0 0,1 2,2v2"></path>
+                        <line x1="10" y1="11" x2="10" y2="17"></line>
+                        <line x1="14" y1="11" x2="14" y2="17"></line>
+                    </svg>
+                    Delete Item
+                </button>
+            </div>
+            
+            <div class="code-block">
+                <pre><code>&lt;div class="modal modal-sm" id="confirmModal"&gt;
     &lt;div class="modal-dialog"&gt;
         &lt;div class="modal-content"&gt;
             &lt;div class="modal-header"&gt;
                 &lt;h3 class="modal-title"&gt;
-                    &lt;i data-feather="alert-triangle" class="icon"&gt;&lt;/i&gt;
+                    &lt;svg class="icon" viewBox="0 0 24 24"&gt;...&lt;/svg&gt;
                     Confirm Delete
                 &lt;/h3&gt;
                 &lt;button type="button" class="modal-close" data-modal-dismiss&gt;
-                    &lt;i data-feather="x"&gt;&lt;/i&gt;
+                    &lt;svg viewBox="0 0 24 24"&gt;...&lt;/svg&gt;
                 &lt;/button&gt;
             &lt;/div&gt;
             &lt;div class="modal-body"&gt;
@@ -219,33 +158,36 @@
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;</code></pre>
-                            </div>
-                        </div>
-                    </section>
+            </div>
+        </div>
 
-                    <!-- Form Modal -->
-                    <section class="component-section mb-8">
-                        <h2 class="section-title">Form Modal</h2>
-                        <p class="section-description">
-                            A modal containing a form with proper validation and accessibility.
-                        </p>
-                        
-                        <div class="example-container">
-                            <div class="example-preview">
-                                <button class="btn btn-primary" data-modal-target="formModal">
-                                    <i data-feather="user-plus"></i>
-                                    Add User
-                                </button>
-                            </div>
-                            
-                            <div class="example-code">
-                                <pre><code>&lt;div class="modal" id="formModal"&gt;
+        <!-- Form Modal -->
+        <div class="demo-section">
+            <h2 class="subsection-title">Form Modal</h2>
+            <p class="demo-description">
+                A modal containing a form with proper validation and accessibility.
+            </p>
+            
+            <div class="demo-flex">
+                <button class="btn btn-primary" data-pds-modal-target="formModal">
+                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="8.5" cy="7" r="4"></circle>
+                        <line x1="20" y1="8" x2="20" y2="14"></line>
+                        <line x1="23" y1="11" x2="17" y2="11"></line>
+                    </svg>
+                    Add User
+                </button>
+            </div>
+            
+            <div class="code-block">
+                <pre><code>&lt;div class="modal" id="formModal"&gt;
     &lt;div class="modal-dialog"&gt;
         &lt;div class="modal-content"&gt;
             &lt;div class="modal-header"&gt;
                 &lt;h3 class="modal-title"&gt;Add New User&lt;/h3&gt;
                 &lt;button type="button" class="modal-close" data-modal-dismiss&gt;
-                    &lt;i data-feather="x"&gt;&lt;/i&gt;
+                    &lt;svg viewBox="0 0 24 24"&gt;...&lt;/svg&gt;
                 &lt;/button&gt;
             &lt;/div&gt;
             &lt;div class="modal-body"&gt;
@@ -271,29 +213,31 @@
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;</code></pre>
-                            </div>
-                        </div>
-                    </section>
+            </div>
+        </div>
 
-                    <!-- Static Backdrop -->
-                    <section class="component-section mb-8">
-                        <h2 class="section-title">Static Backdrop</h2>
-                        <p class="section-description">
-                            A modal that cannot be closed by clicking the backdrop.
-                        </p>
-                        
-                        <div class="example-container">
-                            <div class="example-preview">
-                                <button class="btn btn-warning" data-modal-target="staticModal" data-modal-backdrop="static">
-                                    <i data-feather="lock"></i>
-                                    Static Modal
-                                </button>
-                            </div>
-                            
-                            <div class="example-code">
-                                <pre><code>&lt;!-- Trigger with static backdrop --&gt;
+        <!-- Static Backdrop -->
+        <div class="demo-section">
+            <h2 class="subsection-title">Static Backdrop</h2>
+            <p class="demo-description">
+                A modal that cannot be closed by clicking the backdrop.
+            </p>
+            
+            <div class="demo-flex">
+                <button class="btn btn-warning" data-pds-modal-target="staticModal" data-modal-backdrop="static">
+                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <circle cx="12" cy="16" r="1"></circle>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                    Static Modal
+                </button>
+            </div>
+            
+            <div class="code-block">
+                <pre><code>&lt;!-- Trigger with static backdrop --&gt;
 &lt;button class="btn btn-warning" 
-        data-modal-target="staticModal" 
+        data-pds-modal-target="staticModal" 
         data-modal-backdrop="static"&gt;
     Static Modal
 &lt;/button&gt;
@@ -302,37 +246,33 @@
 &lt;script&gt;
 showModal('staticModal', { backdrop: 'static' });
 &lt;/script&gt;</code></pre>
-                            </div>
-                        </div>
-                    </section>
+            </div>
+        </div>
 
-                    <!-- JavaScript API -->
-                    <section class="component-section mb-8">
-                        <h2 class="section-title">JavaScript API</h2>
-                        <p class="section-description">
-                            Control modals programmatically with the JavaScript API.
-                        </p>
-                        
-                        <div class="example-container">
-                            <div class="example-preview">
-                                <div class="btn-group">
-                                    <button class="btn btn-primary" onclick="showModal('jsModal')">
-                                        Show Modal
-                                    </button>
-                                    <button class="btn btn-secondary" onclick="hideModal('jsModal')">
-                                        Hide Modal
-                                    </button>
-                                    <button class="btn btn-outline-primary" onclick="toggleModal('jsModal')">
-                                        Toggle Modal
-                                    </button>
-                                    <button class="btn btn-info" onclick="updateModalContent()">
-                                        Update Content
-                                    </button>
-                                </div>
-                            </div>
-                            
-                            <div class="example-code">
-                                <pre><code>// Basic modal operations
+        <!-- JavaScript API -->
+        <div class="demo-section">
+            <h2 class="subsection-title">JavaScript API</h2>
+            <p class="demo-description">
+                Control modals programmatically with the JavaScript API.
+            </p>
+            
+            <div class="demo-flex">
+                <button class="btn btn-primary" onclick="showModal('jsModal')">
+                    Show Modal
+                </button>
+                <button class="btn btn-secondary" onclick="hideModal('jsModal')">
+                    Hide Modal
+                </button>
+                <button class="btn btn-outline-primary" onclick="toggleModal('jsModal')">
+                    Toggle Modal
+                </button>
+                <button class="btn btn-info" onclick="updateModalContent()">
+                    Update Content
+                </button>
+            </div>
+            
+            <div class="code-block">
+                <pre><code>// Basic modal operations
 showModal('modalId');                    // Show modal
 hideModal('modalId');                    // Hide modal
 toggleModal('modalId');                  // Toggle modal
@@ -345,7 +285,7 @@ showModal('modalId', {
 });
 
 // Get modal instance for advanced operations
-const modal = PDSModals.getInstance('modalId');
+const modal = pds.Modal.getInstance('modalId');
 modal.setTitle('New Title');
 modal.setBody('&lt;p&gt;New content&lt;/p&gt;');
 modal.setFooter('&lt;button class="btn btn-primary"&gt;OK&lt;/button&gt;');
@@ -358,16 +298,9 @@ document.getElementById('modalId').addEventListener('modal.shown', (e) =&gt; {
 document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
     console.log('Modal hidden:', e.detail.modal);
 });</code></pre>
-                            </div>
-                        </div>
-                    </section>
-                </div>
             </div>
         </div>
     </div>
-
-    <!-- Overlay for mobile -->
-    <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
 
     <!-- Modal Examples -->
     
@@ -377,11 +310,18 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
             <div class="modal-content">
                 <div class="modal-header">
                     <h3 class="modal-title">
-                        <i data-feather="info" class="icon"></i>
+                        <svg class="icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="16" x2="12" y2="12"></line>
+                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                        </svg>
                         Basic Modal
                     </h3>
                     <button type="button" class="modal-close" data-modal-dismiss>
-                        <i data-feather="x"></i>
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
                     </button>
                 </div>
                 <div class="modal-body">
@@ -407,7 +347,10 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
                 <div class="modal-header">
                     <h3 class="modal-title">Small Modal</h3>
                     <button type="button" class="modal-close" data-modal-dismiss>
-                        <i data-feather="x"></i>
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
                     </button>
                 </div>
                 <div class="modal-body">
@@ -429,7 +372,10 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
                 <div class="modal-header">
                     <h3 class="modal-title">Medium Modal</h3>
                     <button type="button" class="modal-close" data-modal-dismiss>
-                        <i data-feather="x"></i>
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
                     </button>
                 </div>
                 <div class="modal-body">
@@ -451,19 +397,22 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
             <div class="modal-content">
                 <div class="modal-header">
                     <h3 class="modal-title">Large Modal</h3>
-                    <button type="button" class="modal-close" data-modal-dismiss>
-                        <i data-feather="x"></i>
+                    <button type="button" class="modal-close" data-modal-dismiss">
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
                     </button>
                 </div>
                 <div class="modal-body">
                     <p>This is a large modal that takes up more screen space. It's ideal for complex forms, data tables, or content that requires more room.</p>
-                    <div class="form-demo-grid">
-                        <div class="example-box">
-                            <h4 class="example-title">Example Content</h4>
+                    <div class="demo-grid">
+                        <div class="demo-item">
+                            <h4>Example Content</h4>
                             <p>Large modals can accommodate more complex layouts and multiple sections of content.</p>
                         </div>
-                        <div class="example-box">
-                            <h4 class="example-title">Another Section</h4>
+                        <div class="demo-item">
+                            <h4>Another Section</h4>
                             <p>You can organize content in multiple columns or sections within a large modal.</p>
                         </div>
                     </div>
@@ -483,24 +432,27 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
             <div class="modal-content">
                 <div class="modal-header">
                     <h3 class="modal-title">Extra Large Modal</h3>
-                    <button type="button" class="modal-close" data-modal-dismiss>
-                        <i data-feather="x"></i>
+                    <button type="button" class="modal-close" data-modal-dismiss">
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
                     </button>
                 </div>
                 <div class="modal-body">
                     <p>This is an extra-large modal that utilizes maximum screen space while maintaining reasonable margins.</p>
                     <p>Perfect for dashboards, detailed reports, or any content that benefits from a wide layout.</p>
-                    <div class="form-demo-grid">
-                        <div class="example-box">
-                            <h4 class="example-title">Wide Layout</h4>
+                    <div class="demo-grid">
+                        <div class="demo-item">
+                            <h4>Wide Layout</h4>
                             <p>Extra large modals can display complex data tables, charts, or multi-column layouts effectively.</p>
                         </div>
-                        <div class="example-box">
-                            <h4 class="example-title">More Space</h4>
+                        <div class="demo-item">
+                            <h4>More Space</h4>
                             <p>The additional width allows for better organization of complex content.</p>
                         </div>
-                        <div class="example-box">
-                            <h4 class="example-title">Rich Content</h4>
+                        <div class="demo-item">
+                            <h4>Rich Content</h4>
                             <p>You can include images, charts, or other media elements without feeling cramped.</p>
                         </div>
                     </div>
@@ -520,11 +472,18 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
             <div class="modal-content">
                 <div class="modal-header">
                     <h3 class="modal-title">
-                        <i data-feather="alert-triangle" class="icon"></i>
+                        <svg class="icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                            <line x1="12" y1="9" x2="12" y2="13"></line>
+                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                        </svg>
                         Confirm Delete
                     </h3>
                     <button type="button" class="modal-close" data-modal-dismiss>
-                        <i data-feather="x"></i>
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
                     </button>
                 </div>
                 <div class="modal-body">
@@ -548,11 +507,19 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
             <div class="modal-content">
                 <div class="modal-header">
                     <h3 class="modal-title">
-                        <i data-feather="user-plus" class="icon"></i>
+                        <svg class="icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="8.5" cy="7" r="4"></circle>
+                            <line x1="20" y1="8" x2="20" y2="14"></line>
+                            <line x1="23" y1="11" x2="17" y2="11"></line>
+                        </svg>
                         Add New User
                     </h3>
                     <button type="button" class="modal-close" data-modal-dismiss>
-                        <i data-feather="x"></i>
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
                     </button>
                 </div>
                 <div class="modal-body">
@@ -593,11 +560,18 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
             <div class="modal-content">
                 <div class="modal-header">
                     <h3 class="modal-title">
-                        <i data-feather="lock" class="icon"></i>
+                        <svg class="icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <circle cx="12" cy="16" r="1"></circle>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
                         Static Backdrop
                     </h3>
                     <button type="button" class="modal-close" data-modal-dismiss>
-                        <i data-feather="x"></i>
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
                     </button>
                 </div>
                 <div class="modal-body">
@@ -620,7 +594,10 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
                 <div class="modal-header">
                     <h3 class="modal-title">JavaScript API Demo</h3>
                     <button type="button" class="modal-close" data-modal-dismiss>
-                        <i data-feather="x"></i>
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
                     </button>
                 </div>
                 <div class="modal-body">
@@ -635,10 +612,8 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
             </div>
         </div>
     </div>
-    <script>
-        // Initialize Feather icons
-        feather.replace();
 
+    <script>
         // Handle form submission
         function handleFormSubmit(event) {
             event.preventDefault();
@@ -655,13 +630,13 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
 
         // Update modal content dynamically
         function updateModalContent() {
-            const modal = PDSModals.getInstance('jsModal');
+            const modal = pds.Modal.getInstance('jsModal');
             if (modal) {
                 modal.setTitle('Updated Title - ' + new Date().toLocaleTimeString());
                 modal.setBody(`
                     <p><strong>Content updated at:</strong> ${new Date().toLocaleString()}</p>
                     <p>This demonstrates how you can dynamically update modal content using the JavaScript API.</p>
-                    <div class="alert alert-info">
+                    <div class="alert alert-info mb-4 p-3 bg-blue-50 border border-blue-200 rounded-md">
                         <strong>Tip:</strong> You can update the title, body, and footer content programmatically.
                     </div>
                 `);
@@ -682,13 +657,17 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
         }
 
         // Add some example event listeners
-        document.getElementById('basicModal').addEventListener('modal.shown', function(e) {
-            console.log('Basic modal shown:', e.detail);
-        });
+        document.addEventListener('DOMContentLoaded', function() {
+            const basicModal = document.getElementById('basicModal');
+            if (basicModal) {
+                basicModal.addEventListener('modal.shown', function(e) {
+                    console.log('Basic modal shown:', e.detail);
+                });
 
-        document.getElementById('basicModal').addEventListener('modal.hidden', function(e) {
-            console.log('Basic modal hidden:', e.detail);
+                basicModal.addEventListener('modal.hidden', function(e) {
+                    console.log('Basic modal hidden:', e.detail);
+                });
+            }
         });
     </script>
-</body>
-</html>
+</div>

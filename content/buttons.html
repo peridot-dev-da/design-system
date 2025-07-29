@@ -1,647 +1,216 @@
-<!DOCTYPE html>
-<html lang="en">
+<div class="content-area">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+        <span class="breadcrumb-item">Design System</span>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-item active">Layout System</span>
+    </nav>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Design System - Layout System</title>
-    <link rel="stylesheet" href="./css/root.css">
-    <link rel="stylesheet" href="./css/root.css">
-    <script>
-        (function () {
-            const savedTheme = localStorage.getItem('theme');
-            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-            if (savedTheme === 'dark' || (savedTheme === null && systemPrefersDark)) {
-                document.documentElement.classList.add('dark-mode');
-                localStorage.setItem('theme', 'dark');
-            } else if (savedTheme === 'light') {
-                document.documentElement.classList.add('light-mode');
-                localStorage.setItem('theme', 'dark');
-            }
-        })()
-    </script>
-</head>
-
-<body>
-    <div class="dashboard-layout">
-        <!-- Sidebar -->
-        <div class="sidebar" id="sidebar">
-            <div class="sidebar-header">
-                <a href="#" class="sidebar-brand">
-                    <div class="sidebar-brand-logo">DS</div>
-                    <div class="sidebar-brand-text">Design System</div>
-                </a>
-            </div>
-
-            <div class="sidebar-content">
-                <!-- Foundation Section -->
-                <div class="nav-section">
-                    <div class="nav-section-title">Foundation</div>
-                    <ul class="nav-menu">
-                        <li class="nav-item">
-                            <a href="#foundation" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                                    <rect x="7" y="7" width="10" height="3"></rect>
-                                    <rect x="7" y="14" width="10" height="3"></rect>
-                                </svg>
-                                Design Tokens
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#utilities" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <path
-                                        d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z">
-                                    </path>
-                                </svg>
-                                Utility Classes
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Layout Section -->
-                <div class="nav-section">
-                    <div class="nav-section-title">Layout</div>
-                    <ul class="nav-menu">
-                        <li class="nav-item">
-                            <a href="#layout-system" class="nav-link active">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                                    <line x1="9" y1="3" x2="9" y2="21"></line>
-                                </svg>
-                                Layout System
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#grid-system" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <rect x="3" y="3" width="6" height="6"></rect>
-                                    <rect x="15" y="3" width="6" height="6"></rect>
-                                    <rect x="3" y="15" width="6" height="6"></rect>
-                                    <rect x="15" y="15" width="6" height="6"></rect>
-                                </svg>
-                                Grid System
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#containers" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <rect x="2" y="6" width="20" height="12" rx="2"></rect>
-                                </svg>
-                                Containers
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Navigation Section -->
-                <div class="nav-section">
-                    <div class="nav-section-title">Navigation</div>
-                    <ul class="nav-menu">
-                        <li class="nav-item has-children">
-                            <a href="#navigation" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <line x1="3" y1="12" x2="21" y2="12"></line>
-                                    <line x1="3" y1="6" x2="21" y2="6"></line>
-                                    <line x1="3" y1="18" x2="21" y2="18"></line>
-                                </svg>
-                                Navigation
-                            </a>
-                            <ul class="nav-submenu">
-                                <li class="nav-item">
-                                    <a href="#menu-items" class="nav-link">Menu Items</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#hamburger-menu" class="nav-link">Hamburger Menu</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#tab-navigation" class="nav-link">Tab Navigation</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#breadcrumbs" class="nav-link">Breadcrumbs</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Form Components Section -->
-                <div class="nav-section">
-                    <div class="nav-section-title">Form Components</div>
-                    <ul class="nav-menu">
-                        <li class="nav-item has-children">
-                            <a href="#forms" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <path
-                                        d="M9 11H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2h-4">
-                                    </path>
-                                    <rect x="9" y="3" width="6" height="8" rx="1"></rect>
-                                </svg>
-                                Form Controls
-                            </a>
-                            <ul class="nav-submenu">
-                                <li class="nav-item">
-                                    <a href="#input-fields" class="nav-link">Input Fields</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#input-groups" class="nav-link">Input Groups</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#select-dropdown" class="nav-link">Select Dropdown</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#textarea" class="nav-link">Textarea</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#form-validation" class="nav-link">Form Validation</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#upload-component" class="nav-link">Upload Component</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#toggle-switch" class="nav-link">Toggle/Switch</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Buttons Section -->
-                <div class="nav-section">
-                    <div class="nav-section-title">Buttons</div>
-                    <ul class="nav-menu">
-                        <li class="nav-item">
-                            <a href="#button-system" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <rect x="3" y="8" width="18" height="8" rx="1"></rect>
-                                    <path d="M7 8V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"></path>
-                                </svg>
-                                Button System
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#icon-buttons" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <circle cx="12" cy="12" r="3"></circle>
-                                    <path
-                                        d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24">
-                                    </path>
-                                </svg>
-                                Icon Buttons
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#button-groups" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <rect x="3" y="8" width="5" height="8" rx="1"></rect>
-                                    <rect x="9.5" y="8" width="5" height="8" rx="1"></rect>
-                                    <rect x="16" y="8" width="5" height="8" rx="1"></rect>
-                                </svg>
-                                Button Groups
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Cards & Panels Section -->
-                <div class="nav-section">
-                    <div class="nav-section-title">Cards & Panels</div>
-                    <ul class="nav-menu">
-                        <li class="nav-item">
-                            <a href="#base-card" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <rect x="4" y="4" width="16" height="16" rx="2"></rect>
-                                </svg>
-                                Base Card
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#content-panel" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <rect x="3" y="3" width="18" height="18" rx="2"></rect>
-                                    <path d="M9 3v18"></path>
-                                </svg>
-                                Content Panel
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#list-items" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <line x1="8" y1="6" x2="21" y2="6"></line>
-                                    <line x1="8" y1="12" x2="21" y2="12"></line>
-                                    <line x1="8" y1="18" x2="21" y2="18"></line>
-                                    <line x1="3" y1="6" x2="3.01" y2="6"></line>
-                                    <line x1="3" y1="12" x2="3.01" y2="12"></line>
-                                    <line x1="3" y1="18" x2="3.01" y2="18"></line>
-                                </svg>
-                                List Items
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Overlays & Feedback Section -->
-                <div class="nav-section">
-                    <div class="nav-section-title">Overlays & Feedback</div>
-                    <ul class="nav-menu">
-                        <li class="nav-item">
-                            <a href="#modal-system" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                                    <rect x="7" y="7" width="10" height="6" rx="1"></rect>
-                                </svg>
-                                Modal System
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#toast-notifications" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
-                                    <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-                                </svg>
-                                Toast Notifications
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#alert-banners" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <path d="M12 9v4"></path>
-                                    <path d="M12 17h.01"></path>
-                                    <path d="M3 3l18 18"></path>
-                                </svg>
-                                Alert Banners
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#dropdown-menus" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <polyline points="6,9 12,15 18,9"></polyline>
-                                </svg>
-                                Dropdown Menus
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Data Display Section -->
-                <div class="nav-section">
-                    <div class="nav-section-title">Data Display</div>
-                    <ul class="nav-menu">
-                        <li class="nav-item">
-                            <a href="#status-badges" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                    <polyline points="22,4 12,14.01 9,11.01"></polyline>
-                                </svg>
-                                Status Badges
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#progress-bars" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <line x1="10" y1="9" x2="9" y2="9"></line>
-                                    <line x1="15" y1="9" x2="15" y2="9"></line>
-                                    <path d="M4 2h16v20H4z"></path>
-                                </svg>
-                                Progress Bars
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#empty-states" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <path d="M8 12l2 2 4-4"></path>
-                                </svg>
-                                Empty States
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Interactive Components Section -->
-                <div class="nav-section">
-                    <div class="nav-section-title">Interactive</div>
-                    <ul class="nav-menu">
-                        <li class="nav-item">
-                            <a href="#calendar-grid" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                    <line x1="16" y1="2" x2="16" y2="6"></line>
-                                    <line x1="8" y1="2" x2="8" y2="6"></line>
-                                    <line x1="3" y1="10" x2="21" y2="10"></line>
-                                </svg>
-                                Calendar Grid
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#range-slider" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <line x1="4" y1="12" x2="20" y2="12"></line>
-                                    <circle cx="8" cy="12" r="2"></circle>
-                                </svg>
-                                Range Slider
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Theme System Section -->
-                <div class="nav-section">
-                    <div class="nav-section-title">Theme</div>
-                    <ul class="nav-menu">
-                        <li class="nav-item">
-                            <a href="#theme-system" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <circle cx="12" cy="12" r="5"></circle>
-                                    <path
-                                        d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42">
-                                    </path>
-                                </svg>
-                                Dark Mode
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="sidebar-footer">
-                <div class="footer-info">
-                    Design System v1.0<br>
-                    Built with CSS Custom Properties
-                </div>
-            </div>
+    <!-- Page Content -->
+    <div class="page-section">
+        <div class="demo-section">
+            <h1 class="section-title">Button System</h1>
+            <p class="section-subtitle">Comprehensive button components with variants, sizes, and states</p>
         </div>
 
-        <!-- Main Content -->
-        <div class="main-content">
-            <div class="main-header">
-                <div class="main-header-left">
-                    <button class="hamburger-toggle" id="hamburgerToggle" onclick="toggleSidebar()">
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                    </button>
-                    <h1 class="page-title">Layout System</h1>
+        <!-- Primary Buttons -->
+        <div class="demo-section">
+            <h2 class="subsection-title">Button Variants</h2>
+            <div class="demo-flex">
+                <button class="btn btn-primary">Primary</button>
+                <button class="btn btn-secondary">Secondary</button>
+                <button class="btn btn-success">Success</button>
+                <button class="btn btn-warning">Warning</button>
+                <button class="btn btn-danger">Danger</button>
+                <button class="btn btn-info">Info</button>
+                <button class="btn btn-ghost">Ghost</button>
+            </div>
+            <div class="code-block">
+                &lt;button class="btn btn-primary"&gt;Primary&lt;/button&gt;
+                &lt;button class="btn btn-secondary"&gt;Secondary&lt;/button&gt;
+                &lt;button class="btn btn-success"&gt;Success&lt;/button&gt;</div>
+        </div>
+
+        <!-- Outline Buttons -->
+        <div class="demo-section">
+            <h2 class="subsection-title">Outline Variants</h2>
+            <div class="demo-flex">
+                <button class="btn btn-outline-primary">Primary</button>
+                <button class="btn btn-outline-secondary">Secondary</button>
+                <button class="btn btn-outline-success">Success</button>
+                <button class="btn btn-outline-warning">Warning</button>
+                <button class="btn btn-outline-danger">Danger</button>
+                <button class="btn btn-outline-info">Info</button>
+            </div>
+            <div class="code-block">
+                &lt;button class="btn btn-outline-primary"&gt;Primary&lt;/button&gt;
+                &lt;button class="btn btn-outline-secondary"&gt;Secondary&lt;/button&gt;</div>
+        </div>
+
+        <!-- Button Sizes -->
+        <div class="demo-section">
+            <h2 class="subsection-title">Button Sizes</h2>
+            <div class="demo-flex" style="align-items: center;">
+                <button class="btn btn-primary btn-xs">Extra Small</button>
+                <button class="btn btn-primary btn-sm">Small</button>
+                <button class="btn btn-primary">Default</button>
+                <button class="btn btn-primary btn-lg">Large</button>
+                <button class="btn btn-primary btn-xl">Extra Large</button>
+            </div>
+            <div class="code-block">
+                &lt;button class="btn btn-primary btn-xs"&gt;Extra Small&lt;/button&gt;
+                &lt;button class="btn btn-primary btn-sm"&gt;Small&lt;/button&gt;
+                &lt;button class="btn btn-primary"&gt;Default&lt;/button&gt;
+                &lt;button class="btn btn-primary btn-lg"&gt;Large&lt;/button&gt;</div>
+        </div>
+
+        <!-- Icon Buttons -->
+        <div class="demo-section">
+            <h2 class="subsection-title">Icon Buttons</h2>
+            <div class="demo-flex" style="align-items: center;">
+                <button class="btn btn-primary btn-icon btn-icon-sm">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 5v14M5 12h14"></path>
+                    </svg>
+                </button>
+                <button class="btn btn-primary btn-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 5v14M5 12h14"></path>
+                    </svg>
+                </button>
+                <button class="btn btn-primary btn-icon btn-icon-lg">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 5v14M5 12h14"></path>
+                    </svg>
+                </button>
+                <button class="btn btn-primary btn-icon btn-icon-xl">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 5v14M5 12h14"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="code-block">
+                &lt;button class="btn btn-primary btn-icon"&gt;
+                &lt;svg&gt;...&lt;/svg&gt;
+                &lt;/button&gt;</div>
+        </div>
+
+        <!-- Buttons with Icons -->
+        <div class="demo-section">
+            <h2 class="subsection-title">Buttons with Icons</h2>
+            <div class="demo-flex">
+                <button class="btn btn-primary">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 5v14M5 12h14"></path>
+                    </svg>
+                    Add Item
+                </button>
+                <button class="btn btn-success">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20,6 9,17 4,12"></polyline>
+                    </svg>
+                    Save Changes
+                </button>
+                <button class="btn btn-danger">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="3,6 5,6 21,6"></polyline>
+                        <path d="m19,6v14a2,2 0 01-2,2H7a2,2 0 01-2-2V6m3,0V4a2,2 0 012-2h4a2,2 0 012,2v2">
+                        </path>
+                    </svg>
+                    Delete
+                </button>
+                <button class="btn btn-outline-secondary">
+                    Download
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="code-block">
+                &lt;button class="btn btn-primary"&gt;
+                &lt;svg&gt;...&lt;/svg&gt;
+                Add Item
+                &lt;/button&gt;</div>
+        </div>
+
+        <!-- Button States -->
+        <div class="demo-section">
+            <h2 class="subsection-title">Button States</h2>
+            <div class="demo-flex">
+                <button class="btn btn-primary">Normal</button>
+                <button class="btn btn-primary active">Active</button>
+                <button class="btn btn-primary" disabled>Disabled</button>
+                <button class="btn btn-primary btn-loading">Loading</button>
+            </div>
+            <div class="code-block">
+                &lt;button class="btn btn-primary"&gt;Normal&lt;/button&gt;
+                &lt;button class="btn btn-primary active"&gt;Active&lt;/button&gt;
+                &lt;button class="btn btn-primary" disabled&gt;Disabled&lt;/button&gt;
+                &lt;button class="btn btn-primary btn-loading"&gt;Loading&lt;/button&gt;</div>
+        </div>
+
+        <!-- Button Groups -->
+        <div class="demo-section">
+            <h2 class="subsection-title">Button Groups</h2>
+            <div class="demo-flex">
+                <div class="btn-group">
+                    <button class="btn btn-outline-secondary active">Left</button>
+                    <button class="btn btn-outline-secondary">Middle</button>
+                    <button class="btn btn-outline-secondary">Right</button>
                 </div>
-                <div class="main-header-right">
-                    <button class="theme-toggle btn btn-outline-secondary btn-icon" onclick="toggleTheme()"
-                        title="Toggle theme">
-                        <svg id="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                <div class="btn-group">
+                    <button class="btn btn-primary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 12h18m-9-9l9 9-9 9"></path>
+                        </svg>
+                    </button>
+                    <button class="btn btn-primary">Action</button>
+                    <button class="btn btn-primary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6,9 12,15 18,9"></polyline>
                         </svg>
                     </button>
                 </div>
             </div>
+            <div class="code-block">
+                &lt;div class="btn-group"&gt;
+                &lt;button class="btn btn-outline-secondary active"&gt;Left&lt;/button&gt;
+                &lt;button class="btn btn-outline-secondary"&gt;Middle&lt;/button&gt;
+                &lt;button class="btn btn-outline-secondary"&gt;Right&lt;/button&gt;
+                &lt;/div&gt;</div>
+        </div>
 
-            <div class="content-area">
-                <!-- Breadcrumb -->
-                <nav class="breadcrumb">
-                    <span class="breadcrumb-item">Design System</span>
-                    <span class="breadcrumb-separator">/</span>
-                    <span class="breadcrumb-item active">Layout System</span>
-                </nav>
+        <!-- Block Buttons -->
+        <div class="demo-section">
+            <h2 class="subsection-title">Block Buttons</h2>
+            <div style="max-width: 400px;">
+                <button class="btn btn-primary btn-block mb-2">Full Width Primary</button>
+                <button class="btn btn-outline-secondary btn-block">Full Width Secondary</button>
+            </div>
+            <div class="code-block">
+                &lt;button class="btn btn-primary btn-block"&gt;Full Width Button&lt;/button&gt;</div>
+        </div>
 
-                <!-- Page Content -->
-                <div class="page-section">
-                    <div class="demo-section">
-                        <h1 class="section-title">Button System</h1>
-                        <p class="section-subtitle">Comprehensive button components with variants, sizes, and states</p>
-                    </div>
-
-                    <!-- Primary Buttons -->
-                    <div class="demo-section">
-                        <h2 class="subsection-title">Button Variants</h2>
-                        <div class="demo-flex">
-                            <button class="btn btn-primary">Primary</button>
-                            <button class="btn btn-secondary">Secondary</button>
-                            <button class="btn btn-success">Success</button>
-                            <button class="btn btn-warning">Warning</button>
-                            <button class="btn btn-danger">Danger</button>
-                            <button class="btn btn-info">Info</button>
-                            <button class="btn btn-ghost">Ghost</button>
-                        </div>
-                        <div class="code-block">
-                            &lt;button class="btn btn-primary"&gt;Primary&lt;/button&gt;
-                            &lt;button class="btn btn-secondary"&gt;Secondary&lt;/button&gt;
-                            &lt;button class="btn btn-success"&gt;Success&lt;/button&gt;</div>
-                    </div>
-
-                    <!-- Outline Buttons -->
-                    <div class="demo-section">
-                        <h2 class="subsection-title">Outline Variants</h2>
-                        <div class="demo-flex">
-                            <button class="btn btn-outline-primary">Primary</button>
-                            <button class="btn btn-outline-secondary">Secondary</button>
-                            <button class="btn btn-outline-success">Success</button>
-                            <button class="btn btn-outline-warning">Warning</button>
-                            <button class="btn btn-outline-danger">Danger</button>
-                            <button class="btn btn-outline-info">Info</button>
-                        </div>
-                        <div class="code-block">
-                            &lt;button class="btn btn-outline-primary"&gt;Primary&lt;/button&gt;
-                            &lt;button class="btn btn-outline-secondary"&gt;Secondary&lt;/button&gt;</div>
-                    </div>
-
-                    <!-- Button Sizes -->
-                    <div class="demo-section">
-                        <h2 class="subsection-title">Button Sizes</h2>
-                        <div class="demo-flex" style="align-items: center;">
-                            <button class="btn btn-primary btn-xs">Extra Small</button>
-                            <button class="btn btn-primary btn-sm">Small</button>
-                            <button class="btn btn-primary">Default</button>
-                            <button class="btn btn-primary btn-lg">Large</button>
-                            <button class="btn btn-primary btn-xl">Extra Large</button>
-                        </div>
-                        <div class="code-block">
-                            &lt;button class="btn btn-primary btn-xs"&gt;Extra Small&lt;/button&gt;
-                            &lt;button class="btn btn-primary btn-sm"&gt;Small&lt;/button&gt;
-                            &lt;button class="btn btn-primary"&gt;Default&lt;/button&gt;
-                            &lt;button class="btn btn-primary btn-lg"&gt;Large&lt;/button&gt;</div>
-                    </div>
-
-                    <!-- Icon Buttons -->
-                    <div class="demo-section">
-                        <h2 class="subsection-title">Icon Buttons</h2>
-                        <div class="demo-flex" style="align-items: center;">
-                            <button class="btn btn-primary btn-icon btn-icon-sm">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 5v14M5 12h14"></path>
-                                </svg>
-                            </button>
-                            <button class="btn btn-primary btn-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 5v14M5 12h14"></path>
-                                </svg>
-                            </button>
-                            <button class="btn btn-primary btn-icon btn-icon-lg">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 5v14M5 12h14"></path>
-                                </svg>
-                            </button>
-                            <button class="btn btn-primary btn-icon btn-icon-xl">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 5v14M5 12h14"></path>
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="code-block">
-                            &lt;button class="btn btn-primary btn-icon"&gt;
-                            &lt;svg&gt;...&lt;/svg&gt;
-                            &lt;/button&gt;</div>
-                    </div>
-
-                    <!-- Buttons with Icons -->
-                    <div class="demo-section">
-                        <h2 class="subsection-title">Buttons with Icons</h2>
-                        <div class="demo-flex">
-                            <button class="btn btn-primary">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 5v14M5 12h14"></path>
-                                </svg>
-                                Add Item
-                            </button>
-                            <button class="btn btn-success">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="20,6 9,17 4,12"></polyline>
-                                </svg>
-                                Save Changes
-                            </button>
-                            <button class="btn btn-danger">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="3,6 5,6 21,6"></polyline>
-                                    <path d="m19,6v14a2,2 0 01-2,2H7a2,2 0 01-2-2V6m3,0V4a2,2 0 012-2h4a2,2 0 012,2v2">
-                                    </path>
-                                </svg>
-                                Delete
-                            </button>
-                            <button class="btn btn-outline-secondary">
-                                Download
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"></path>
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="code-block">
-                            &lt;button class="btn btn-primary"&gt;
-                            &lt;svg&gt;...&lt;/svg&gt;
-                            Add Item
-                            &lt;/button&gt;</div>
-                    </div>
-
-                    <!-- Button States -->
-                    <div class="demo-section">
-                        <h2 class="subsection-title">Button States</h2>
-                        <div class="demo-flex">
-                            <button class="btn btn-primary">Normal</button>
-                            <button class="btn btn-primary active">Active</button>
-                            <button class="btn btn-primary" disabled>Disabled</button>
-                            <button class="btn btn-primary btn-loading">Loading</button>
-                        </div>
-                        <div class="code-block">
-                            &lt;button class="btn btn-primary"&gt;Normal&lt;/button&gt;
-                            &lt;button class="btn btn-primary active"&gt;Active&lt;/button&gt;
-                            &lt;button class="btn btn-primary" disabled&gt;Disabled&lt;/button&gt;
-                            &lt;button class="btn btn-primary btn-loading"&gt;Loading&lt;/button&gt;</div>
-                    </div>
-
-                    <!-- Button Groups -->
-                    <div class="demo-section">
-                        <h2 class="subsection-title">Button Groups</h2>
-                        <div class="demo-flex">
-                            <div class="btn-group">
-                                <button class="btn btn-outline-secondary active">Left</button>
-                                <button class="btn btn-outline-secondary">Middle</button>
-                                <button class="btn btn-outline-secondary">Right</button>
-                            </div>
-                            <div class="btn-group">
-                                <button class="btn btn-primary">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M3 12h18m-9-9l9 9-9 9"></path>
-                                    </svg>
-                                </button>
-                                <button class="btn btn-primary">Action</button>
-                                <button class="btn btn-primary">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polyline points="6,9 12,15 18,9"></polyline>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="code-block">
-                            &lt;div class="btn-group"&gt;
-                            &lt;button class="btn btn-outline-secondary active"&gt;Left&lt;/button&gt;
-                            &lt;button class="btn btn-outline-secondary"&gt;Middle&lt;/button&gt;
-                            &lt;button class="btn btn-outline-secondary"&gt;Right&lt;/button&gt;
-                            &lt;/div&gt;</div>
-                    </div>
-
-                    <!-- Block Buttons -->
-                    <div class="demo-section">
-                        <h2 class="subsection-title">Block Buttons</h2>
-                        <div style="max-width: 400px;">
-                            <button class="btn btn-primary btn-block mb-2">Full Width Primary</button>
-                            <button class="btn btn-outline-secondary btn-block">Full Width Secondary</button>
-                        </div>
-                        <div class="code-block">
-                            &lt;button class="btn btn-primary btn-block"&gt;Full Width Button&lt;/button&gt;</div>
-                    </div>
-
-                    <!-- Interactive Demo -->
-                    <div class="demo-section">
-                        <h2 class="subsection-title">Interactive Examples</h2>
-                        <div class="demo-flex">
-                            <button class="btn btn-primary" onclick="showAlert('Primary button clicked!')">Click
-                                Me</button>
-                            <button class="btn btn-success" onclick="simulateLoading(this)">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="20,6 9,17 4,12"></polyline>
-                                </svg>
-                                Save
-                            </button>
-                            <button class="btn btn-warning" onclick="confirmAction()">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path
-                                        d="M12 9v4M12 17h.01M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z">
-                                    </path>
-                                </svg>
-                                Confirm
-                            </button>
-                        </div>
-                    </div>
-                </div>
+        <!-- Interactive Demo -->
+        <div class="demo-section">
+            <h2 class="subsection-title">Interactive Examples</h2>
+            <div class="demo-flex">
+                <button class="btn btn-primary" onclick="showAlert('Primary button clicked!')">Click
+                    Me</button>
+                <button class="btn btn-success" onclick="simulateLoading(this)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20,6 9,17 4,12"></polyline>
+                    </svg>
+                    Save
+                </button>
+                <button class="btn btn-warning" onclick="confirmAction()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 9v4M12 17h.01M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z">
+                        </path>
+                    </svg>
+                    Confirm
+                </button>
             </div>
         </div>
     </div>
-
-    <!-- Overlay for mobile -->
-    <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
-    <script src="js/root.js"></script>
-</body>
-
-</html>
+</div>

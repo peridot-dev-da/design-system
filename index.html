@@ -74,6 +74,12 @@
     <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
     <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.6/dist/htmx.min.js" integrity="sha384-Akqfrbj/HpNVo8k11SXBb6TlBWmXXlYQrCSqEWmyKJe+hDm3Z/B2WVG4smwBkRVm" crossorigin="anonymous"></script>
     <script src="js/root.js"></script>
+    <script>
+        // .main-header height
+        // Magic number 16 below see root.css .main-header(padding top and bottom)
+        document.querySelector(".main-header").style.height = `${document.querySelector(".sidebar-header").clientHeight-(16*2)}px`
+        pds.Modal.init()
+    </script>
 </body>
 
 </html>
