@@ -87,56 +87,29 @@ function simulateNavigation() {
     navLinks[randomIndex].classList.add('active');
 }
 
-document.addEventListener('click', function (e) {
-    // Close sidebar when clicking outside on mobile
-    const sidebar = document.getElementById('sidebar');
-    if (!sidebar.classList.contains(e.target) && !e.target.closest("#hamburgerToggle") && sidebar.classList.contains('active')) {
-        toggleSidebar();
-    }
-    // Clicks on nav items
-    if (e.target.closest('.nav-item.has-children > .nav-link')) {
-        link = e.target.closest('.nav-item.has-children > .nav-link')
-        e.preventDefault();
-        const parentItem = link.closest('.nav-item');
-        parentItem.classList.toggle('expanded');
-    }
-});
-
-
-// Initialize page
-document.addEventListener('DOMContentLoaded', function () {
-    // Set active nav item based on current page
-    const currentPage = window.location.hash || '#layout-system';
-    const activeLink = document.querySelector(`a[href="${currentPage}"]`);
-    if (activeLink) {
-        document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-        activeLink.classList.add('active');
-    }
-});
-
-// Listen to device theme change
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-    if (e.matches) {
-        document.documentElement.classList.add('dark-mode');
-        document.documentElement.classList.remove('light-mode');
-    } else {
-        document.documentElement.classList.remove('dark-mode');
-        document.documentElement.classList.add('light-mode');
-    }
-});
-
-/* ================================
-   MODAL FUNCTIONALITY
-   ================================ */
-
 const pds = {
-    Modal: class {
+    modal: class {
         /**
          * @param {HTMLElement|string} modal - A DOM element or a selector string
          * @param {object} options - Optional settings for initialization
+         * @param {object} context - Optional context data
          * @returns {void}
+         * 
+         * let m = new pds.Modal(ID, options)
+         * options can be:
+         *  - backdrop: static
+         *  - etc..
+         *
+         * The options above may also be set directly on the HTML
+         * elment with the `modal` class using the syntax
+         * `data-pds-modal-[option-name]=value` attribute.
+         *
+         * One can also pass a context to the modal through
+         * the data-pds-modal-context attribute which accepts a
+         * JSON-formatted string such as data-pds-modal-context='{"serviceUuid":"555"}'
+         * which then becomes accessinble through modal.context
          */
-        constructor(modal, options = {}) {
+        constructor(modal, options = {}, context = {}) {
             if (modal instanceof HTMLElement) {
                 this.modalId = modal.id
                 this.modal = modal
@@ -144,25 +117,28 @@ const pds = {
                 this.modal = document.getElementById(modal);
                 this.modalId = modal;
             }
-            this.options = {
-                backdrop: true, // true, false, or 'static'
-                keyboard: true, // Allow ESC key to close
-                focus: true,    // Auto focus modal when opened
-                ...options
-            };
 
             if (!this.modal) {
                 console.error(`Modal with ID "${modal}" not found`);
                 return;
             }
 
+            this.options = {
+                backdrop: "", // true, false, or 'static'
+                focus: true,    // Auto focus modal when opened
+                ...Object.keys(this.modal.dataset).filter(k => k.indexOf("pdsModal") != -1).reduce((acc, k) => {
+                    acc[k.replace("pdsModal", "").toLowerCase()] = this.modal.dataset[k];
+                    return acc
+                }, {}),
+                ...options // top-predence option override
+            };
+            this.context = context
             this.dialog = this.modal.querySelector('.modal-dialog') || undefined;
             this.content = this.modal.querySelector('.modal-content') || undefined;
             this.header = this.modal.querySelector('.modal-header') || undefined;
             this.body = this.modal.querySelector('.modal-body') || undefined;
             this.footer = this.modal.querySelector('.modal-footer') || undefined;
-
-            this.isOpen = false;
+            this.isOpen = this.modal.classList.contains("show");
             this.originalFocus = null;
 
             // Set focus trap
@@ -304,56 +280,13 @@ const pds = {
             });
         }
 
-        static init() {
-            // Set up close button event
-            // const closeBtn = this.modal.querySelector('.modal-close');
-            // if (closeBtn) {
-            //     closeBtn.addEventListener('click', () => this.hide());
-            // }
-
-            // Set up backdrop click
-            document.addEventListener('click', (e) => {
-                if (e.target.closest(".modal-close")) {
-                    const modal = new this(e.target.closest(".modal"))
-                    modal.hide()
-                }
-                else if (e.target.hasAttribute("data-pds-modal-target")) {
-                    const id = e.target.dataset.pdsModalTarget
-                    /*  Use the `data-pds-modal-context` attribute to pass context
-                        to a modal by setting this attribute on an element that's 
-                        suposed to trigger a modal. Value must be a valid JSON string.
-                    */
-                   this.show(id)
-                }
-                // TODO: fix backdrop closing
-                // if (e.target.closest(".modal") && this.options.backdrop !== 'static') {
-                //     if (this.options.backdrop === true) {
-                //         this.hide();
-                //     }
-                // } else if (e.target === this.modal && this.options.backdrop === 'static') {
-                //     this.shake();
-                // }
-            });
-
-            // TODO: fix this
-            // Set up keyboard events
-            // if (this.options.keyboard) {
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && document.querySelector(".modal.active")) {
-                    new this(document.querySelector(".modal.active")).hide()
-                }
-            });
-            // }
+        // Create and return a modal instance
+        static getInstance(modalId, options = {}, context = {}) {
+            return new this(modalId, options, context);
         }
 
-        // Create or get modal instance
-        static getInstance(modalId, options = {}) {
-            return new this(modalId, options);
-        }
-
-        // Show modal
-        static show(modalId, options = {}) {
-            const modal = this.getInstance(modalId, options);
+        static show(modalId, options = {}, context = {}) {
+            const modal = this.getInstance(modalId, options, context);
             if (modal) modal.show();
             return modal;
         }
@@ -376,46 +309,67 @@ const pds = {
         static hideAll() {
             console.error("Not Implemented")
         }
-    }
-
-}
-
-pds.Modal.init()
-
-// Convenience functions for global access
-function showModal(modalId, options = {}) {
-    return pds.Modal.show(modalId, options);
-}
-
-function hideModal(modalId) {
-    return pds.Modal.hide(modalId);
-}
-
-function toggleModal(modalId, options = {}) {
-    return pds.Modal.toggle(modalId, options);
-}
-
-// Auto-initialize modals on page load
-document.addEventListener('DOMContentLoaded', function () {
-    // Initialize modals with data attributes
-    document.querySelectorAll('[data-pds-modal-target]').forEach(trigger => {
-        trigger.addEventListener('click', function (e) {
-            e.preventDefault();
-            const modalId = this.getAttribute('data-pds-modal-target');
-            const backdrop = this.getAttribute('data-modal-backdrop') || true;
-            const keyboard = this.getAttribute('data-modal-keyboard') !== 'false';
-
-            showModal(modalId, { backdrop, keyboard });
-        });
-    });
-
-    // Initialize close buttons
-    document.querySelectorAll('[data-modal-dismiss]').forEach(closeBtn => {
-        closeBtn.addEventListener('click', function (e) {
-            const modal = this.closest('.modal');
-            if (modal) {
-                hideModal(modal.id);
+    },
+    init() {
+        document.addEventListener("click", (e) => {
+            /*  Use the `data-pds-modal-context` attribute to pass context
+                to a modal by setting this attribute on an
+                element that's suposed to trigger a modal. Value
+                must be a valid JSON string.
+            */
+            if (e.target.hasAttribute("data-pds-modal-target")) {
+                const id = e.target.dataset.pdsModalTarget
+                this.modal.show(id, {}, e.target.dataset.pdsModalContext)
             }
-        });
-    });
+            else if (e.target.closest("[data-pds-modal-dismiss]")) {
+                const modal = new this.modal(e.target.closest(".modal"))
+                modal.hide()
+            }
+            else if (e.target.classList.contains("modal") && e.target.classList.contains("show")) {
+                const modal = new this.modal(e.target)
+                if (modal.options.backdrop == "static") { modal.shake() }
+                else { modal.hide() }
+            }
+        })
+    }
+}
+
+document.addEventListener('click', function (e) {
+    // Close sidebar when clicking outside on mobile
+    const sidebar = document.getElementById('sidebar');
+    if (!sidebar.classList.contains(e.target) && !e.target.closest("#hamburgerToggle") && sidebar.classList.contains('active')) {
+        toggleSidebar();
+    }
+    // Clicks on nav items
+    if (e.target.closest('.nav-item.has-children > .nav-link')) {
+        link = e.target.closest('.nav-item.has-children > .nav-link')
+        e.preventDefault();
+        const parentItem = link.closest('.nav-item');
+        parentItem.classList.toggle('expanded');
+    }
 });
+
+
+// Initialize page
+document.addEventListener('DOMContentLoaded', function () {
+    // Set active nav item based on current page
+    const currentPage = window.location.hash || '#layout-system';
+    const activeLink = document.querySelector(`a[href="${currentPage}"]`);
+    if (activeLink) {
+        document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+        activeLink.classList.add('active');
+    }
+});
+
+// Listen to device theme change
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+    if (e.matches) {
+        document.documentElement.classList.add('dark-mode');
+        document.documentElement.classList.remove('light-mode');
+    } else {
+        document.documentElement.classList.remove('dark-mode');
+        document.documentElement.classList.add('light-mode');
+    }
+});
+
+pds.init()

@@ -2998,6 +2998,7 @@ body {
     visibility: hidden;
     transition: all 0.3s ease;
     backdrop-filter: blur(2px);
+    color: var(--pds-neutral-white);
 }
 
 .modal.show {

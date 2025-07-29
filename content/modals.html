@@ -46,7 +46,7 @@
                     &lt;svg class="icon" viewBox="0 0 24 24"&gt;...&lt;/svg&gt;
                     Basic Modal
                 &lt;/h3&gt;
-                &lt;button type="button" class="modal-close" data-modal-dismiss&gt;
+                &lt;button type="button" class="modal-close" data-pds-modal-dismiss&gt;
                     &lt;svg viewBox="0 0 24 24"&gt;...&lt;/svg&gt;
                 &lt;/button&gt;
             &lt;/div&gt;
@@ -54,7 +54,7 @@
                 &lt;p&gt;This is a basic modal with standard styling.&lt;/p&gt;
             &lt;/div&gt;
             &lt;div class="modal-footer"&gt;
-                &lt;button type="button" class="btn btn-secondary" data-modal-dismiss&gt;
+                &lt;button type="button" class="btn btn-secondary" data-pds-modal-dismiss&gt;
                     Cancel
                 &lt;/button&gt;
                 &lt;button type="button" class="btn btn-primary"&gt;
@@ -140,7 +140,7 @@
                     &lt;svg class="icon" viewBox="0 0 24 24"&gt;...&lt;/svg&gt;
                     Confirm Delete
                 &lt;/h3&gt;
-                &lt;button type="button" class="modal-close" data-modal-dismiss&gt;
+                &lt;button type="button" class="modal-close" data-pds-modal-dismiss&gt;
                     &lt;svg viewBox="0 0 24 24"&gt;...&lt;/svg&gt;
                 &lt;/button&gt;
             &lt;/div&gt;
@@ -148,7 +148,7 @@
                 &lt;p&gt;Are you sure you want to delete this item? This action cannot be undone.&lt;/p&gt;
             &lt;/div&gt;
             &lt;div class="modal-footer justify-between"&gt;
-                &lt;button type="button" class="btn btn-secondary" data-modal-dismiss&gt;
+                &lt;button type="button" class="btn btn-secondary" data-pds-modal-dismiss&gt;
                     Cancel
                 &lt;/button&gt;
                 &lt;button type="button" class="btn btn-danger"&gt;
@@ -186,7 +186,7 @@
         &lt;div class="modal-content"&gt;
             &lt;div class="modal-header"&gt;
                 &lt;h3 class="modal-title"&gt;Add New User&lt;/h3&gt;
-                &lt;button type="button" class="modal-close" data-modal-dismiss&gt;
+                &lt;button type="button" class="modal-close" data-pds-modal-dismiss&gt;
                     &lt;svg viewBox="0 0 24 24"&gt;...&lt;/svg&gt;
                 &lt;/button&gt;
             &lt;/div&gt;
@@ -203,7 +203,7 @@
                 &lt;/form&gt;
             &lt;/div&gt;
             &lt;div class="modal-footer"&gt;
-                &lt;button type="button" class="btn btn-secondary" data-modal-dismiss&gt;
+                &lt;button type="button" class="btn btn-secondary" data-pds-modal-dismiss&gt;
                     Cancel
                 &lt;/button&gt;
                 &lt;button type="submit" form="userForm" class="btn btn-primary"&gt;
@@ -224,7 +224,7 @@
             </p>
             
             <div class="demo-flex">
-                <button class="btn btn-warning" data-pds-modal-target="staticModal" data-modal-backdrop="static">
+                <button class="btn btn-warning" data-pds-modal-target="staticModal">
                     <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
                         <circle cx="12" cy="16" r="1"></circle>
@@ -257,13 +257,13 @@ showModal('staticModal', { backdrop: 'static' });
             </p>
             
             <div class="demo-flex">
-                <button class="btn btn-primary" onclick="showModal('jsModal')">
+                <button class="btn btn-primary" onclick="pds.modal.show('jsModal')">
                     Show Modal
                 </button>
-                <button class="btn btn-secondary" onclick="hideModal('jsModal')">
+                <button class="btn btn-secondary" onclick="pds.modal.hide('jsModal')">
                     Hide Modal
                 </button>
-                <button class="btn btn-outline-primary" onclick="toggleModal('jsModal')">
+                <button class="btn btn-outline-primary" onclick="pds.modal.toggle('jsModal')">
                     Toggle Modal
                 </button>
                 <button class="btn btn-info" onclick="updateModalContent()">
@@ -273,9 +273,9 @@ showModal('staticModal', { backdrop: 'static' });
             
             <div class="code-block">
                 <pre><code>// Basic modal operations
-showModal('modalId');                    // Show modal
-hideModal('modalId');                    // Hide modal
-toggleModal('modalId');                  // Toggle modal
+pds.modal.show('modalId');                    // Show modal
+pds.modal.hide('modalId');                    // Hide modal
+pds.modal.toggle('modalId');                  // Toggle modal
 
 // With options
 showModal('modalId', {
@@ -317,7 +317,7 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
                         </svg>
                         Basic Modal
                     </h3>
-                    <button type="button" class="modal-close" data-modal-dismiss>
+                    <button type="button" class="modal-close" data-pds-modal-dismiss>
                         <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="18" y1="6" x2="6" y2="18"></line>
                             <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -326,13 +326,13 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
                 </div>
                 <div class="modal-body">
                     <p>This is a basic modal with standard styling and functionality. It demonstrates the typical structure of a modal dialog with header, body, and footer sections.</p>
-                    <p>You can close this modal by clicking the X button, pressing the Escape key, or clicking outside the modal.</p>
+                    <p>You can close this modal by clicking the X button or clicking outside the modal.</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-modal-dismiss>
+                    <button type="button" class="btn btn-secondary" data-pds-modal-dismiss>
                         Cancel
                     </button>
-                    <button type="button" class="btn btn-primary" onclick="alert('Changes saved!'); hideModal('basicModal');">
+                    <button type="button" class="btn btn-primary" onclick="alert('Changes saved!'); pds.modal.hide('basicModal');">
                         Save Changes
                     </button>
                 </div>
@@ -346,7 +346,7 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
             <div class="modal-content">
                 <div class="modal-header">
                     <h3 class="modal-title">Small Modal</h3>
-                    <button type="button" class="modal-close" data-modal-dismiss>
+                    <button type="button" class="modal-close" data-pds-modal-dismiss>
                         <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="18" y1="6" x2="6" y2="18"></line>
                             <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -357,7 +357,7 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
                     <p>This is a small modal, perfect for simple messages or confirmations.</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-modal-dismiss>
+                    <button type="button" class="btn btn-primary" data-pds-modal-dismiss>
                         OK
                     </button>
                 </div>
@@ -371,7 +371,7 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
             <div class="modal-content">
                 <div class="modal-header">
                     <h3 class="modal-title">Medium Modal</h3>
-                    <button type="button" class="modal-close" data-modal-dismiss>
+                    <button type="button" class="modal-close" data-pds-modal-dismiss>
                         <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="18" y1="6" x2="6" y2="18"></line>
                             <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -383,7 +383,7 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
                     <p>Perfect for forms, detailed information, or moderate amounts of content.</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-modal-dismiss>
+                    <button type="button" class="btn btn-secondary" data-pds-modal-dismiss>
                         Close
                     </button>
                 </div>
@@ -397,7 +397,7 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
             <div class="modal-content">
                 <div class="modal-header">
                     <h3 class="modal-title">Large Modal</h3>
-                    <button type="button" class="modal-close" data-modal-dismiss">
+                    <button type="button" class="modal-close" data-pds-modal-dismiss">
                         <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="18" y1="6" x2="6" y2="18"></line>
                             <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -418,7 +418,7 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-modal-dismiss>
+                    <button type="button" class="btn btn-secondary" data-pds-modal-dismiss>
                         Close
                     </button>
                 </div>
@@ -432,7 +432,7 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
             <div class="modal-content">
                 <div class="modal-header">
                     <h3 class="modal-title">Extra Large Modal</h3>
-                    <button type="button" class="modal-close" data-modal-dismiss">
+                    <button type="button" class="modal-close" data-pds-modal-dismiss">
                         <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="18" y1="6" x2="6" y2="18"></line>
                             <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -458,7 +458,7 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-modal-dismiss>
+                    <button type="button" class="btn btn-secondary" data-pds-modal-dismiss>
                         Close
                     </button>
                 </div>
@@ -479,7 +479,7 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
                         </svg>
                         Confirm Delete
                     </h3>
-                    <button type="button" class="modal-close" data-modal-dismiss>
+                    <button type="button" class="modal-close" data-pds-modal-dismiss>
                         <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="18" y1="6" x2="6" y2="18"></line>
                             <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -490,10 +490,10 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
                     <p>Are you sure you want to delete this item? This action cannot be undone.</p>
                 </div>
                 <div class="modal-footer justify-between">
-                    <button type="button" class="btn btn-secondary" data-modal-dismiss>
+                    <button type="button" class="btn btn-secondary" data-pds-modal-dismiss>
                         Cancel
                     </button>
-                    <button type="button" class="btn btn-danger" onclick="alert('Item deleted!'); hideModal('confirmModal');">
+                    <button type="button" class="btn btn-danger" onclick="alert('Item deleted!'); pds.modal.hide('confirmModal');">
                         Delete
                     </button>
                 </div>
@@ -515,7 +515,7 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
                         </svg>
                         Add New User
                     </h3>
-                    <button type="button" class="modal-close" data-modal-dismiss>
+                    <button type="button" class="modal-close" data-pds-modal-dismiss>
                         <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="18" y1="6" x2="6" y2="18"></line>
                             <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -526,7 +526,7 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
                     <form id="userForm">
                         <div class="form-group">
                             <label for="userName">Full Name</label>
-                            <input type="text" id="userName" class="form-control" required autofocus>
+                            <input type="text" id="userName" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="userEmail">Email Address</label>
@@ -543,7 +543,7 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-modal-dismiss>
+                    <button type="button" class="btn btn-secondary" data-pds-modal-dismiss>
                         Cancel
                     </button>
                     <button type="submit" form="userForm" class="btn btn-primary" onclick="handleFormSubmit(event)">
@@ -555,7 +555,7 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
     </div>
 
     <!-- Static Modal -->
-    <div class="modal modal-sm" id="staticModal">
+    <div class="modal modal-sm" id="staticModal" data-pds-modal-backdrop="static">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -567,7 +567,7 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
                         </svg>
                         Static Backdrop
                     </h3>
-                    <button type="button" class="modal-close" data-modal-dismiss>
+                    <button type="button" class="modal-close" data-pds-modal-dismiss>
                         <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="18" y1="6" x2="6" y2="18"></line>
                             <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -579,7 +579,7 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
                     <p>Try clicking outside the modal - it will shake to indicate it cannot be dismissed.</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-modal-dismiss>
+                    <button type="button" class="btn btn-primary" data-pds-modal-dismiss>
                         Close Modal
                     </button>
                 </div>
@@ -593,7 +593,7 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
             <div class="modal-content">
                 <div class="modal-header">
                     <h3 class="modal-title">JavaScript API Demo</h3>
-                    <button type="button" class="modal-close" data-modal-dismiss>
+                    <button type="button" class="modal-close" data-pds-modal-dismiss>
                         <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="18" y1="6" x2="6" y2="18"></line>
                             <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -605,7 +605,7 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
                     <p>Content can be updated programmatically using the modal instance methods.</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-modal-dismiss>
+                    <button type="button" class="btn btn-secondary" data-pds-modal-dismiss>
                         Close
                     </button>
                 </div>
@@ -624,7 +624,7 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
             if (name && email) {
                 alert(`User added successfully!\nName: ${name}\nEmail: ${email}\nRole: ${role}`);
                 document.getElementById('userForm').reset();
-                hideModal('formModal');
+                pds.modal.hide('formModal');
             }
         }
 
@@ -641,7 +641,7 @@ document.getElementById('modalId').addEventListener('modal.hidden', (e) =&gt; {
                     </div>
                 `);
                 modal.setFooter(`
-                    <button type="button" class="btn btn-secondary" data-modal-dismiss>
+                    <button type="button" class="btn btn-secondary" data-pds-modal-dismiss>
                         Close
                     </button>
                     <button type="button" class="btn btn-success" onclick="alert('Dynamic action executed!')">
