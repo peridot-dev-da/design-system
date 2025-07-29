@@ -111,7 +111,16 @@ The design system is organized into logical component groups with HTMX-powered n
    - Split button dropdowns and context menus
    - Full keyboard navigation and accessibility support
 
-8. **Content Components**
+8. **Tables & Data Display** (`content/tables.html`)
+   - Basic table styling with consistent padding and borders
+   - Enhanced data tables with search, filtering, and pagination
+   - Status badges and role badges for data visualization
+   - User info components with avatars and details
+   - Responsive table wrappers for mobile compatibility
+   - Professional styling inspired by enterprise applications
+   - Loading states and interactive features
+
+9. **Content Components**
    - Card system: `.card` with header, body, footer sections
    - Status badges and progress indicators
    - Foundation elements and design tokens (`content/foundation.html`)
@@ -222,3 +231,14 @@ Each content HTML file serves as both documentation and interactive demo:
 - Modern browsers supporting CSS Custom Properties (IE11+)
 - CSS Grid and Flexbox support required
 - No polyfills or transpilation needed
+
+## Important Development Notes
+
+### Repository Structure
+- We are no longer using the `content` folder due to GitHub Pages requirements
+- All templates are now placed in the root directory
+- Manually updated to simplify link structures for GitHub Pages
+
+### Template Considerations
+- The `tables.html` demo template does not follow the same HTML structure pattern as other templates
+- Ensure consistency in future template implementations

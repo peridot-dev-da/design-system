@@ -1,0 +1,658 @@
+<div class="content-area">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+        <span class="breadcrumb-item">Design System</span>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-item active">Tables & Data</span>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="page-section">
+        <div class="section-header">
+            <h1 class="section-title">Tables & Data Display</h1>
+            <p class="section-subtitle">Display tabular data with filtering, searching, and pagination capabilities</p>
+        </div>
+
+        <!-- Basic Table -->
+        <div class="card">
+            <div class="card-header">
+                <h3>Basic Table</h3>
+            </div>
+            <div class="card-body">
+                <p>Standard table styling with consistent padding and borders.</p>
+                
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John Smith</td>
+                            <td>john.smith@example.com</td>
+                            <td>Developer</td>
+                            <td><span class="status-badge status-active">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>Jane Doe</td>
+                            <td>jane.doe@example.com</td>
+                            <td>Designer</td>
+                            <td><span class="status-badge status-inactive">Inactive</span></td>
+                        </tr>
+                        <tr>
+                            <td>Mike Johnson</td>
+                            <td>mike.johnson@example.com</td>
+                            <td>Manager</td>
+                            <td><span class="status-badge status-pending">Pending</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="code-block">
+&lt;table class="table"&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Name&lt;/th&gt;
+      &lt;th&gt;Email&lt;/th&gt;
+      &lt;th&gt;Role&lt;/th&gt;
+      &lt;th&gt;Status&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;John Smith&lt;/td&gt;
+      &lt;td&gt;john.smith@example.com&lt;/td&gt;
+      &lt;td&gt;Developer&lt;/td&gt;
+      &lt;td&gt;&lt;span class="status-badge status-active"&gt;Active&lt;/span&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</div>
+            </div>
+        </div>
+
+        <!-- Data Table with Search and Filters -->
+        <div class="card">
+            <div class="card-header">
+                <h3>Data Table with Search & Filters</h3>
+            </div>
+            <div class="card-body">
+                <p>Enhanced table with search functionality, filters, and professional styling.</p>
+                
+                <!-- Search and Filters -->
+                <div class="search-filters">
+                    <div class="grid grid-4 gap-4">
+                        <div class="form-group">
+                            <label class="form-label" for="table-search">Search Users</label>
+                            <div class="input-with-icon">
+                                <span class="input-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="11" cy="11" r="8"></circle>
+                                        <path d="m21 21-4.35-4.35"></path>
+                                    </svg>
+                                </span>
+                                <input type="text" class="form-control" id="table-search" placeholder="Search by name or email...">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="role-filter">Role</label>
+                            <select class="form-select" id="role-filter">
+                                <option value="">All Roles</option>
+                                <option value="admin">Admin</option>
+                                <option value="manager">Manager</option>
+                                <option value="developer">Developer</option>
+                                <option value="designer">Designer</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="department-filter">Department</label>
+                            <select class="form-select" id="department-filter">
+                                <option value="">All Departments</option>
+                                <option value="engineering">Engineering</option>
+                                <option value="design">Design</option>
+                                <option value="marketing">Marketing</option>
+                                <option value="sales">Sales</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="status-filter">Status</label>
+                            <select class="form-select" id="status-filter">
+                                <option value="">All Statuses</option>
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                                <option value="pending">Pending</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enhanced Data Table -->
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h4>Team Members <span class="table-count">(6)</span></h4>
+                            <p class="table-info">Manage team members and their access permissions</p>
+                        </div>
+                        <button class="btn btn-primary">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;">
+                                <path d="M12 5v14M5 12h14"></path>
+                            </svg>
+                            Add Member
+                        </button>
+                    </div>
+                    <div class="card-body" style="padding: 0;">
+                        <table class="data-table" id="users-table">
+                            <thead>
+                                <tr>
+                                    <th>User</th>
+                                    <th>Role</th>
+                                    <th>Department</th>
+                                    <th>Last Login</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="user-info">
+                                            <div class="user-avatar">SA</div>
+                                            <div class="user-details">
+                                                <h4>Sarah Adams</h4>
+                                                <p>sarah.adams@company.com</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="role-badge role-admin">Admin</span></td>
+                                    <td>Engineering</td>
+                                    <td>
+                                        <div>2024-02-25 09:15</div>
+                                        <div style="font-size: 12px; color: var(--pds-neutral-grey-500);">2 hours ago</div>
+                                    </td>
+                                    <td><span class="status-badge status-active">Active</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                                            <button class="btn btn-sm btn-outline-primary">View</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="user-info">
+                                            <div class="user-avatar">MJ</div>
+                                            <div class="user-details">
+                                                <h4>Michael Johnson</h4>
+                                                <p>m.johnson@company.com</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="role-badge role-manager">Manager</span></td>
+                                    <td>Design</td>
+                                    <td>
+                                        <div>2024-02-25 08:30</div>
+                                        <div style="font-size: 12px; color: var(--pds-neutral-grey-500);">3 hours ago</div>
+                                    </td>
+                                    <td><span class="status-badge status-active">Active</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                                            <button class="btn btn-sm btn-outline-primary">View</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="user-info">
+                                            <div class="user-avatar">LW</div>
+                                            <div class="user-details">
+                                                <h4>Lisa Wilson</h4>
+                                                <p>lisa.wilson@company.com</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="role-badge role-employee">Developer</span></td>
+                                    <td>Engineering</td>
+                                    <td>
+                                        <div>2024-02-25 10:45</div>
+                                        <div style="font-size: 12px; color: var(--pds-neutral-grey-500);">30 minutes ago</div>
+                                    </td>
+                                    <td><span class="status-badge status-active">Active</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                                            <button class="btn btn-sm btn-outline-primary">View</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="user-info">
+                                            <div class="user-avatar">DB</div>
+                                            <div class="user-details">
+                                                <h4>David Brown</h4>
+                                                <p>david.brown@company.com</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="role-badge role-employee">Designer</span></td>
+                                    <td>Design</td>
+                                    <td>
+                                        <div>2024-02-24 16:20</div>
+                                        <div style="font-size: 12px; color: var(--pds-neutral-grey-500);">18 hours ago</div>
+                                    </td>
+                                    <td><span class="status-badge status-active">Active</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                                            <button class="btn btn-sm btn-outline-primary">View</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="user-info">
+                                            <div class="user-avatar">JD</div>
+                                            <div class="user-details">
+                                                <h4>Jennifer Davis</h4>
+                                                <p>j.davis@company.com</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="role-badge role-manager">Manager</span></td>
+                                    <td>Marketing</td>
+                                    <td>
+                                        <div>Never</div>
+                                        <div style="font-size: 12px; color: var(--pds-neutral-grey-500);">Account pending</div>
+                                    </td>
+                                    <td><span class="status-badge status-pending">Pending</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                                            <button class="btn btn-sm btn-outline-primary">View</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="user-info">
+                                            <div class="user-avatar">CM</div>
+                                            <div class="user-details">
+                                                <h4>Chris Miller</h4>
+                                                <p>c.miller@company.com</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="role-badge role-employee">Developer</span></td>
+                                    <td>Engineering</td>
+                                    <td>
+                                        <div>2024-02-20 14:15</div>
+                                        <div style="font-size: 12px; color: var(--pds-neutral-grey-500);">5 days ago</div>
+                                    </td>
+                                    <td><span class="status-badge status-inactive">Inactive</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                                            <button class="btn btn-sm btn-outline-primary">View</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="d-flex justify-content-between align-items-center" style="margin-top: 24px;">
+                    <div class="table-info">
+                        Showing 1-6 of 6 users
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn btn-outline-secondary" disabled>Previous</button>
+                        <button class="btn btn-secondary active">1</button>
+                        <button class="btn btn-outline-secondary">Next</button>
+                    </div>
+                </div>
+
+                <div class="code-block">
+&lt;div class="search-filters"&gt;
+  &lt;div class="grid grid-4 gap-4"&gt;
+    &lt;div class="form-group"&gt;
+      &lt;label class="form-label"&gt;Search Users&lt;/label&gt;
+      &lt;input type="text" class="form-control"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;table class="data-table"&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;User&lt;/th&gt;
+      &lt;th&gt;Role&lt;/th&gt;
+      &lt;th&gt;Status&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;
+        &lt;div class="user-info"&gt;
+          &lt;div class="user-avatar"&gt;SA&lt;/div&gt;
+          &lt;div class="user-details"&gt;
+            &lt;h4&gt;Sarah Adams&lt;/h4&gt;
+            &lt;p&gt;sarah.adams@company.com&lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+      &lt;td&gt;&lt;span class="role-badge role-admin"&gt;Admin&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;span class="status-badge status-active"&gt;Active&lt;/span&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</div>
+            </div>
+        </div>
+
+        <!-- Interactive Functions -->
+        <div class="card">
+            <div class="card-header">
+                <h3>Interactive Features</h3>
+            </div>
+            <div class="card-body">
+                <p>Test the search and filter functionality.</p>
+                
+                <div class="demo-flex">
+                    <button class="btn btn-primary" onclick="demoSearch()">Demo Search</button>
+                    <button class="btn btn-secondary" onclick="clearFilters()">Clear Filters</button>
+                    <button class="btn btn-outline-secondary" onclick="toggleLoading()">Toggle Loading State</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Table Variants -->
+        <div class="card">
+            <div class="card-header">
+                <h3>Table Variants</h3>
+            </div>
+            <div class="card-body">
+                <p>Different styling options for tables.</p>
+                
+                <div class="demo-section">
+                    <h4>Striped Table</h4>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Price</th>
+                                <th>Stock</th>
+                                <th>Category</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Laptop</td>
+                                <td>$1,299.99</td>
+                                <td>15</td>
+                                <td>Electronics</td>
+                            </tr>
+                            <tr>
+                                <td>Mouse</td>
+                                <td>$29.99</td>
+                                <td>45</td>
+                                <td>Accessories</td>
+                            </tr>
+                            <tr>
+                                <td>Keyboard</td>
+                                <td>$89.99</td>
+                                <td>23</td>
+                                <td>Accessories</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="demo-section">
+                    <h4>Hover Table</h4>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Task</th>
+                                <th>Assignee</th>
+                                <th>Due Date</th>
+                                <th>Priority</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Design Homepage</td>
+                                <td>Jane Doe</td>
+                                <td>2024-03-01</td>
+                                <td><span class="status-badge status-error">High</span></td>
+                            </tr>
+                            <tr>
+                                <td>Review Code</td>
+                                <td>John Smith</td>
+                                <td>2024-02-28</td>
+                                <td><span class="status-badge status-pending">Medium</span></td>
+                            </tr>
+                            <tr>
+                                <td>Update Documentation</td>
+                                <td>Mike Johnson</td>
+                                <td>2024-03-05</td>
+                                <td><span class="status-badge status-active">Low</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="demo-section">
+                    <h4>Small Table</h4>
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>Code</th>
+                                <th>Name</th>
+                                <th>Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>001</td>
+                                <td>Setting A</td>
+                                <td>Enabled</td>
+                            </tr>
+                            <tr>
+                                <td>002</td>
+                                <td>Setting B</td>
+                                <td>Disabled</td>
+                            </tr>
+                            <tr>
+                                <td>003</td>
+                                <td>Setting C</td>
+                                <td>Auto</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="code-block">
+&lt;!-- Striped table --&gt;
+&lt;table class="table table-striped"&gt;...&lt;/table&gt;
+
+&lt;!-- Hover effect table --&gt;
+&lt;table class="table table-hover"&gt;...&lt;/table&gt;
+
+&lt;!-- Small table --&gt;
+&lt;table class="table table-sm"&gt;...&lt;/table&gt;</div>
+            </div>
+        </div>
+
+        <!-- Status Badges -->
+        <div class="card">
+            <div class="card-header">
+                <h3>Status & Role Badges</h3>
+            </div>
+            <div class="card-body">
+                <p>Pre-styled badges for common status indicators and user roles.</p>
+                
+                <div class="demo-section">
+                    <h4>Status Badges</h4>
+                    <div class="demo-flex">
+                        <span class="status-badge status-active">Active</span>
+                        <span class="status-badge status-inactive">Inactive</span>
+                        <span class="status-badge status-pending">Pending</span>
+                        <span class="status-badge status-error">Error</span>
+                    </div>
+                </div>
+
+                <div class="demo-section">
+                    <h4>Role Badges</h4>
+                    <div class="demo-flex">
+                        <span class="role-badge role-admin">Admin</span>
+                        <span class="role-badge role-manager">Manager</span>
+                        <span class="role-badge role-consultant">Consultant</span>
+                        <span class="role-badge role-employee">Employee</span>
+                    </div>
+                </div>
+
+                <div class="code-block">
+&lt;span class="status-badge status-active"&gt;Active&lt;/span&gt;
+&lt;span class="role-badge role-admin"&gt;Admin&lt;/span&gt;</div>
+            </div>
+        </div>
+
+        <!-- Responsive Table -->
+        <div class="card">
+            <div class="card-header">
+                <h3>Responsive Table</h3>
+            </div>
+            <div class="card-body">
+                <p>Tables that scroll horizontally on smaller screens.</p>
+                
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Company</th>
+                                <th>Department</th>
+                                <th>Position</th>
+                                <th>Start Date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>001</td>
+                                <td>John Smith</td>
+                                <td>john.smith@company.com</td>
+                                <td>+1 234 567 8900</td>
+                                <td>Acme Corp</td>
+                                <td>Engineering</td>
+                                <td>Senior Developer</td>
+                                <td>2022-01-15</td>
+                                <td><span class="status-badge status-active">Active</span></td>
+                            </tr>
+                            <tr>
+                                <td>002</td>
+                                <td>Jane Doe</td>
+                                <td>jane.doe@company.com</td>
+                                <td>+1 234 567 8901</td>
+                                <td>Acme Corp</td>
+                                <td>Design</td>
+                                <td>UI Designer</td>
+                                <td>2022-03-20</td>
+                                <td><span class="status-badge status-active">Active</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="code-block">
+&lt;div class="table-responsive"&gt;
+  &lt;table class="table"&gt;
+    &lt;!-- Wide table content --&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Search functionality
+        document.getElementById('table-search').addEventListener('input', function (e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const rows = document.querySelectorAll('#users-table tbody tr');
+
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                row.style.display = text.includes(searchTerm) ? '' : 'none';
+            });
+            
+            updateTableCount();
+        });
+
+        // Filter functionality
+        function setupFilter(filterId, columnIndex) {
+            document.getElementById(filterId).addEventListener('change', function (e) {
+                const filterValue = e.target.value.toLowerCase();
+                const rows = document.querySelectorAll('#users-table tbody tr');
+
+                rows.forEach(row => {
+                    if (filterValue === '') {
+                        row.style.display = '';
+                    } else {
+                        const cell = row.cells[columnIndex];
+                        const cellText = cell.textContent.toLowerCase();
+                        row.style.display = cellText.includes(filterValue) ? '' : 'none';
+                    }
+                });
+                
+                updateTableCount();
+            });
+        }
+
+        // Setup filters
+        setupFilter('role-filter', 1);
+        setupFilter('department-filter', 2);
+        setupFilter('status-filter', 4);
+
+        // Update table count
+        function updateTableCount() {
+            const visibleRows = document.querySelectorAll('#users-table tbody tr[style=""], #users-table tbody tr:not([style])');
+            const countElement = document.querySelector('.table-count');
+            if (countElement) {
+                countElement.textContent = `(${visibleRows.length})`;
+            }
+        }
+
+        // Demo functions
+        function demoSearch() {
+            document.getElementById('table-search').value = 'sarah';
+            document.getElementById('table-search').dispatchEvent(new Event('input'));
+        }
+
+        function clearFilters() {
+            document.getElementById('table-search').value = '';
+            document.getElementById('role-filter').value = '';
+            document.getElementById('department-filter').value = '';
+            document.getElementById('status-filter').value = '';
+            
+            const rows = document.querySelectorAll('#users-table tbody tr');
+            rows.forEach(row => row.style.display = '');
+            updateTableCount();
+        }
+
+        function toggleLoading() {
+            const table = document.getElementById('users-table');
+            table.classList.toggle('table-loading');
+        }
+    </script>
+</div>
