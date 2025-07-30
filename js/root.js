@@ -1,5 +1,3 @@
-const { createElement } = require("react");
-
 function toggleTheme() {
     document.documentElement.classList.toggle('dark-mode');
     const isDark = document.documentElement.classList.contains('dark-mode');
