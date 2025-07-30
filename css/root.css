@@ -124,6 +124,12 @@
     /* Shadows */
     --shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
     --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+
+    /* Modal Widths - Default (Mobile First) */
+    --pds-modal-width-sm: 95%;
+    --pds-modal-width-md: 95%;
+    --pds-modal-width-lg: 95%;
+    --pds-modal-width-xl: 95%;
 }
 
 /* Dark mode variables */
@@ -3009,7 +3015,7 @@ body {
 .modal-dialog {
     position: relative;
     width: 90%;
-    max-width: 500px;
+    max-width: var(--pds-modal-width-md);
     max-height: 90vh;
     margin: 1rem;
     transform: scale(0.95) translateY(-20px);
@@ -3135,19 +3141,19 @@ body {
 
 /* Modal size variations */
 .modal-sm .modal-dialog {
-    max-width: 320px;
+    max-width: var(--pds-modal-width-sm);
 }
 
 .modal-md .modal-dialog {
-    max-width: 500px;
+    max-width: var(--pds-modal-width-md);
 }
 
 .modal-lg .modal-dialog {
-    max-width: 800px;
+    max-width: var(--pds-modal-width-lg);
 }
 
 .modal-xl .modal-dialog {
-    max-width: 1140px;
+    max-width: var(--pds-modal-width-xl);
 }
 
 /* Fullscreen modal */
@@ -3207,10 +3213,47 @@ body.modal-open {
     .modal-footer .btn {
         width: 100%;
     }
-    
-    .modal-lg .modal-dialog,
-    .modal-xl .modal-dialog {
-        max-width: 95%;
+}
+
+
+/* Responsive Modal Widths */
+/* Small screens (576px and up) */
+@media (min-width: 576px) {
+    :root {
+        --pds-modal-width-sm: 320px;
+        --pds-modal-width-md: 500px;
+        --pds-modal-width-lg: 500px;
+        --pds-modal-width-xl: 500px;
+    }
+}
+
+/* Medium screens (768px and up) */
+@media (min-width: 768px) {
+    :root {
+        --pds-modal-width-sm: 320px;
+        --pds-modal-width-md: 500px;
+        --pds-modal-width-lg: 700px;
+        --pds-modal-width-xl: 700px;
+    }
+}
+
+/* Large screens (992px and up) */
+@media (min-width: 992px) {
+    :root {
+        --pds-modal-width-sm: 320px;
+        --pds-modal-width-md: 500px;
+        --pds-modal-width-lg: 800px;
+        --pds-modal-width-xl: 900px;
+    }
+}
+
+/* Extra large screens (1200px and up) */
+@media (min-width: 1200px) {
+    :root {
+        --pds-modal-width-sm: 320px;
+        --pds-modal-width-md: 500px;
+        --pds-modal-width-lg: 800px;
+        --pds-modal-width-xl: 1140px;
     }
 }
 

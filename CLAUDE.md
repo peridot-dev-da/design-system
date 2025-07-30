@@ -92,7 +92,8 @@ The design system is organized into logical component groups with HTMX-powered n
 
 5. **Modal System** (`content/modals.html`)
    - Comprehensive modal component with header, body, footer sections
-   - Multiple size variants: small, medium, large, extra-large
+   - Responsive size variants using CSS custom properties: `--pds-modal-width-sm/md/lg/xl`
+   - Multiple size variants: small, medium, large, extra-large with responsive breakpoints
    - JavaScript API with `pds.modal` class and global functions
    - Static backdrop support and focus management
    - Event system with custom events and context passing
