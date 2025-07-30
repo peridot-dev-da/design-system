@@ -1,3 +1,5 @@
+const { createElement } = require("react");
+
 function toggleTheme() {
     document.documentElement.classList.toggle('dark-mode');
     const isDark = document.documentElement.classList.contains('dark-mode');
@@ -135,7 +137,7 @@ const pds = {
 
             let existingAttrOptions = Object(this.element.dataset).keys || []
             Object.keys(this.options).forEach(option => {
-                if(existingAttrOptions.indexOf(option) == -1){
+                if (existingAttrOptions.indexOf(option) == -1) {
                     this.element.setAttribute(`data-pds-modal-${option}`, this.options[option])
                 }
             })
@@ -224,32 +226,51 @@ const pds = {
             }, 300);
         }
 
-        setTitle(title) {
+        setTitle(title, force = false) {
+            if (!this.title) {
+                if (force) {
+                    this.content.insertAdjacentHTML("afterBegin", `<div class="modal-title"></div>`)
+                    this.title = this.element.querySelector('.modal-title')
+                }
+                else return
+            }
             const titleElement = this.element.querySelector('.modal-title');
             if (titleElement) {
                 titleElement.textContent = title;
             }
         }
 
-        setBody(content) {
-            if (this.body) {
-                if (typeof content === 'string') {
-                    this.body.innerHTML = content;
-                } else if (content instanceof Element) {
-                    this.body.innerHTML = '';
-                    this.body.appendChild(content);
+        setBody(content, force = false) {
+            if (!this.body) {
+                if (force) {
+                    let ref = this.title || this.content
+                    let location = this.title ? "afterend" : "afterbegin"
+                    ref.insertAdjacentHTML(location, `<div class="modal-body"></div>`)
+                    this.body = this.element.querySelector('.modal-body')
                 }
+                else return
+            }
+            if (typeof content === 'string') {
+                this.body.innerHTML = content;
+            } else if (content instanceof Element) {
+                this.body.innerHTML = '';
+                this.body.appendChild(content);
             }
         }
 
-        setFooter(content) {
-            if (this.footer) {
-                if (typeof content === 'string') {
-                    this.footer.innerHTML = content;
-                } else if (content instanceof Element) {
-                    this.footer.innerHTML = '';
-                    this.footer.appendChild(content);
+        setFooter(content, force = false) {
+            if (!this.footer) {
+                if (force) {
+                    this.content.insertAdjacentHTML("beforeend", `<div class="modal-footer"></div>`)
+                    this.footer = this.element.querySelector('.modal-footer')
                 }
+                else return
+            }
+            if (typeof content === 'string') {
+                this.footer.innerHTML = content;
+            } else if (content instanceof Element) {
+                this.footer.innerHTML = '';
+                this.footer.appendChild(content);
             }
         }
 
@@ -307,7 +328,7 @@ const pds = {
             console.error("Not Implemented")
         }
     },
-    
+
     dropdown: class {
         constructor(element, options = {}) {
             if (typeof element === 'string') {
@@ -315,27 +336,27 @@ const pds = {
             } else {
                 this.element = element;
             }
-            
+
             if (!this.element) {
                 console.error('Dropdown element not found');
                 return;
             }
-            
+
             this.options = {
                 autoClose: true,
                 ...options
             };
-            
+
             this.toggleButton = this.element.querySelector('.dropdown-toggle');
             this.menu = this.element.querySelector('.dropdown-menu');
             this.isOpen = this.element.classList.contains('show');
-            
+
             this.setupEventListeners();
         }
-        
+
         setupEventListeners() {
             // Don't add individual event listeners here since we handle it globally in init()
-            
+
             // Close on item click if autoClose is enabled
             if (this.menu && this.options.autoClose) {
                 this.menu.addEventListener('click', (e) => {
@@ -345,66 +366,66 @@ const pds = {
                 });
             }
         }
-        
+
         show() {
             if (this.isOpen) return;
-            
+
             // Hide other open dropdowns
             pds.dropdown.hideAll();
-            
+
             const showEvent = HTMXOverride.makeEvent('dropdown.show', { dropdown: this });
             this.element.dispatchEvent(showEvent);
-            
+
             if (showEvent.defaultPrevented) return;
-            
+
             this.element.classList.add('show');
             this.isOpen = true;
-            
+
             const shownEvent = HTMXOverride.makeEvent('dropdown.shown', { dropdown: this });
             this.element.dispatchEvent(shownEvent);
         }
-        
+
         hide() {
             if (!this.isOpen) return;
-            
+
             const hideEvent = HTMXOverride.makeEvent('dropdown.hide', { dropdown: this });
             this.element.dispatchEvent(hideEvent);
-            
+
             if (hideEvent.defaultPrevented) return;
-            
+
             this.element.classList.remove('show');
             this.isOpen = false;
-            
+
             const hiddenEvent = HTMXOverride.makeEvent('dropdown.hidden', { dropdown: this });
             this.element.dispatchEvent(hiddenEvent);
         }
-        
+
         toggle() {
             this.isOpen ? this.hide() : this.show();
         }
-        
+
         static getInstance(element) {
             return new this(element);
         }
-        
+
         static show(element) {
             const dropdown = this.getInstance(element);
             if (dropdown) dropdown.show();
             return dropdown;
         }
-        
+
         static hide(element) {
             const dropdown = this.getInstance(element);
             if (dropdown) dropdown.hide();
             return dropdown;
         }
-        
+
         static toggle(element) {
             const dropdown = this.getInstance(element);
             if (dropdown) dropdown.toggle();
             return dropdown;
         }
-        
+
         static hideAll() {
             document.querySelectorAll('.dropdown.show').forEach(dropdown => {
                 dropdown.classList.remove('show');
