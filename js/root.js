@@ -133,6 +133,13 @@ const pds = {
                 ...options // top-predence option override
             };
 
+            let existingAttrOptions = Object(this.element.dataset).keys || []
+            Object.keys(this.options).forEach(option => {
+                if(existingAttrOptions.indexOf(option) == -1){
+                    this.element.setAttribute(`data-pds-modal-${option}`, this.options[option])
+                }
+            })
+
             this.context = context
             this.dialog = this.element.querySelector('.modal-dialog') || undefined;
             this.content = this.element.querySelector('.modal-content') || undefined;
@@ -273,7 +280,7 @@ const pds = {
             });
         }
 
-        // Create and return a modal instance
+        // Static Methods
         static getInstance(elementId, options = {}, context = {}) {
             return new this(elementId, options, context);
         }
@@ -284,21 +291,18 @@ const pds = {
             return modal;
         }
 
-        // Hide modal
         static hide(elementId) {
             const modal = this.getInstance(elementId);
             if (modal) modal.hide();
             return modal;
         }
 
-        // Toggle modal
         static toggle(elementId, options = {}) {
             const modal = this.getInstance(elementId, options);
             if (modal) modal.toggle();
             return modal;
         }
 
-        // Hide all open modals
         static hideAll() {
             console.error("Not Implemented")
         }
