@@ -16,7 +16,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 This design system uses vanilla HTML, CSS, and JavaScript with HTMX for dynamic content loading. No build pipeline or package manager dependencies are required. The main `index.html` file can be opened directly in a browser for development and testing using a basic HTTP server such as Python's http.server.
 
 ```bash
-python -m http.Server 3000
+python dev_server.py 3000
 ```
 
 ## Architecture Overview

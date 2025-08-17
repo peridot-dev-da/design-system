@@ -61,7 +61,7 @@ Include the CSS and JavaScript files in your HTML:
    ```bash
    open index.html
    # or
-   python -m http.server 8000  # Then visit http://localhost:8000
+   python dev_server.py PORT_NO  # Then visit http://localhost:PORT_NO
    ```
 
 ## 📖 Documentation
