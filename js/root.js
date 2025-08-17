@@ -144,6 +144,7 @@ const pds = {
             this.dialog = this.element.querySelector('.modal-dialog') || undefined;
             this.content = this.element.querySelector('.modal-content') || undefined;
             this.header = this.element.querySelector('.modal-header') || undefined;
+            this.title = this.element.querySelector('.modal-title') || undefined;
             this.body = this.element.querySelector('.modal-body') || undefined;
             this.footer = this.element.querySelector('.modal-footer') || undefined;
             this.isOpen = this.element.classList.contains("show");
@@ -437,9 +438,10 @@ const pds = {
                 element that's suposed to trigger a modal. Value
                 must be a valid JSON string.
             */
-            if (e.target.hasAttribute("data-pds-modal-target")) {
-                const id = e.target.dataset.pdsModalTarget
-                this.modal.show(id, {}, context = e.target.dataset.pdsModalContext ? JSON.parse(e.target.dataset.pdsModalContext) : {})
+            if (e.target.closest("[data-pds-modal-target]")) {
+                const target = e.target.closest("[data-pds-modal-target]")
+                const id = target.dataset.pdsModalTarget
+                this.modal.show(id, {}, context = target.dataset.pdsModalContext ? JSON.parse(target.dataset.pdsModalContext) : {})
             }
             else if (e.target.closest("[data-pds-modal-dismiss]")) {
                 const modal = new this.modal(e.target.closest(".modal"))
